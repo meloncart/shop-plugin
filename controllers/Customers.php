@@ -22,7 +22,7 @@ class Customers extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('MelonCart.Shop', 'meloncart', 'customers');
+        BackendMenu::setContext('MelonCart.Shop', 'shop', 'customers');
     }
 
     /**

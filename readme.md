@@ -4,7 +4,7 @@ MelonCart is a comprehensive and flexible shopping cart plugin for October CMS.
 
 ## Requirements
 
-* [RainLab.User](https://octobercms.com/plugin/rainlab-user), [RainLab.Location](https://octobercms.com/plugin/rainlab-location), [RainLab.UserPlus](https://octobercms.com/plugin/rainlab-userplus) plugins
+* [RainLab.User](https://octobercms.com/plugin/rainlab-user), [RainLab.Location](https://octobercms.com/plugin/rainlab-location), [RainLab.UserPlus](https://octobercms.com/plugin/rainlab-userplus), [RainLab.Notify](https://octobercms.com/plugin/rainlab-notify), [Responsiv.Pay](https://octobercms.com/plugin/responsiv-pay) plugins
 * At least one RainLab.User user in the database
 
 ## Installation

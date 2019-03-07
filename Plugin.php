@@ -15,6 +15,7 @@ class Plugin extends PluginBase
         'RainLab.User',
         'RainLab.Location',
         'RainLab.UserPlus',
+        'RainLab.Notify',
     ];
 
     /**
@@ -35,11 +36,20 @@ class Plugin extends PluginBase
     public function registerNavigation()
     {
         return [
-            'meloncart' => [
+            'reports' => [
+                'label'       => 'Reports',
+                'url'         => Backend::url('meloncart/shop/orders'),
+                'icon'        => 'icon-leaf',
+                'iconSvg'     => 'plugins/meloncart/shop/assets/images/report-icon.svg',
+                'permissions' => ['meloncart.shop.*'],
+                'order'       => 150,
+            ],
+            'shop' => [
                 'label'       => 'Shop',
                 'url'         => Backend::url('meloncart/shop/orders'),
                 'icon'        => 'icon-shopping-cart',
-                'permissions' => ['meloncart.shop:manage_orders_customers'],
+                'iconSvg'     => 'plugins/meloncart/shop/assets/images/shop-icon.svg',
+                'permissions' => ['meloncart.shop.*'],
                 'order'       => 500,
 
                 'sideMenu' => [
