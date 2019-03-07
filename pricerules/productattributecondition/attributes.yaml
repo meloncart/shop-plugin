@@ -1,0 +1,59 @@
+# ===================================
+#  Condition Attribute Definitions
+# ===================================
+
+attributes:
+
+    product:
+        label: Product
+
+    on_sale:
+        label: Product is on Sale
+
+    name:
+        label: Name
+
+    description:
+        label: Long Description
+
+    short_description:
+        label: Short Description
+
+    price:
+        label: Base Price
+        type: float
+
+    tax_class:
+        label: Tax Class
+
+    sku:
+        label: SKU
+
+    weight:
+        label: Weight
+        type: float
+
+    width:
+        label: Width
+        type: float
+
+    height:
+        label: Height
+        type: float
+
+    depth:
+        label: Depth
+        type: float
+
+    categories:
+        label: Categories
+
+    current_price:
+        label: Price
+        type: float
+
+    manufacturer_link:
+        label: Manufacturer
+
+    product_type:
+        label: Product Type

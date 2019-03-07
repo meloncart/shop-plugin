@@ -89,6 +89,16 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('meloncart/shop/shippingmethods'),
                         'permissions' => ['meloncart.shop.manage_orders_customers'],
                     ],
+                    'rules' => [
+                        'label'       => 'Price Rules',
+                        'icon'        => 'icon-list-alt',
+                        'url'         => Backend::url('meloncart/shop/catalogrules'),
+                    ],
+                    'discounts' => [
+                        'label'       => 'Discounts',
+                        'icon'        => 'icon-shopping-basket',
+                        'url'         => Backend::url('meloncart/shop/cartrules'),
+                    ],
                 ]
 
             ]

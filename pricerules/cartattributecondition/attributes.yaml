@@ -1,0 +1,60 @@
+# ===================================
+#  Condition Attribute Definitions
+# ===================================
+
+attributes:
+
+    subtotal:
+        label: Subtotal
+        type: float
+
+    total_quantity:
+        label: Total quantity
+        type: integer
+
+    total_discount:
+        label: Total weight
+        type: float
+
+    total_weight:
+        label: Total cart discount
+        type: float
+
+    shipping_zip:
+        label: Shipping ZIP/postal code
+
+    shipping_country:
+        label: Shipping Country
+        type: relation
+        relation:
+            model: RainLab\Location\Models\Country
+            label: Name
+            nameFrom: name
+            keyFrom: id
+
+    shipping_state:
+        label: Shipping State
+        type: relation
+        relation:
+            model: RainLab\Location\Models\State
+            label: Name
+            nameFrom: name
+            keyFrom: id
+
+    shipping_method:
+        label: Shipping Method
+        type: relation
+        relation:
+            model: Responsiv\Ship\Models\ShippingMethod
+            label: Name
+            nameFrom: name
+            keyFrom: id
+
+    payment_method:
+        label: Payment Method
+        type: relation
+        relation:
+            model: Responsiv\Pay\Models\PaymentMethod
+            label: Name
+            nameFrom: name
+            keyFrom: id

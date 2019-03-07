@@ -1,0 +1,9 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    discount_amount:
+        label: Price
+        commentAbove: Please specify a fixed price to apply to the product.

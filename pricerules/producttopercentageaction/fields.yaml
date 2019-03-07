@@ -1,0 +1,9 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    discount_amount:
+        label: Discount amount
+        commentAbove: Please specify a percentage of the original product price to use as a final product price.

@@ -1,0 +1,70 @@
+<?php if (!$rules->count()): ?>
+    <p class="rules-list-empty">No rules found</p>
+<?php else: ?>
+    <ul class="rule-list" id="ruleList">
+        <?php
+            $lastIndex = $rules->count() - 1;
+            $previousIsTerminating = false;
+        ?>
+
+        <?php foreach ($rules as $index => $rule): ?>
+            <?php
+                $classes = [];
+                if ($index == $lastIndex) $classes[] = 'last';
+                if ($index == 0) $classes[] = 'first';
+                if ($rule->terminating) $classes[] = 'terminating';
+                if ($previousIsTerminating) $classes[] = 'after-terminating';
+                if (!$rule->active) $classes[] = 'inactive';
+                $collapsed = $this->rulesGetCollapseStatus($rule);
+                if ($collapsed) $classes[] = 'collapsed';
+
+                $userGroups = implode($rule->user_groups->lists('name'), ', ');
+                if (!strlen($userGroups)) $userGroups = 'All';
+            ?>
+            <li class="rule <?= implode(' ', $classes) ?>" style="z-index: <?= 1000 + $lastIndex - $index ?>">
+                <div class="rule-content-container">
+                    <div class="drag-handle" title="Reorder rules"></div>
+                    <div class="top-connector"></div>
+
+                    <h4 class="rule-header">
+                        <a href="<?= Backend::url($this->rulesUpdateUrl.'/'.$rule->id) ?>">
+                            <?= e($rule->name) ?>
+                        </a>
+                        <a class="rule-collapse-control" href="#" onclick="return rulesToggle(this, '<?= $rule->id ?>', 'onSetRuleCollapseStatus')">
+                            Collapse/Expand
+                        </a>
+                        <a title="Delete rule" class="rule-delete-icon" href="javascript:;" onclick="return rules_delete(this, '<?= $rule->id ?>')">
+                            delete
+                        </a>
+                    </h4>
+                    <div class="rule-description">
+                        <p><?= e($rule->description) ?></p>
+                    </div>
+
+                    <div class="rule-info">
+                        <p>
+                            <?=  $rule->active ? 'Enabled.' : 'Disabled.' ?>
+                            User groups: <?= $userGroups ?>.
+
+                            <?php if ($rule->date_start): ?>
+                                Start: <?= $rule->date_start->toFormattedDateString() ?>.
+                            <?php endif ?>
+
+                            <?php if ($rule->date_end): ?>
+                                End: <?= $rule->date_end->toFormattedDateString() ?>.
+                            <?php endif ?>
+                        </p>
+                    </div>
+
+                    <div class="bottom-connector"></div>
+
+                    <input class="rule_id" value="<?= $rule->id ?>" type="hidden" />
+                    <input class="rule_order" value="<?= $rule->sort_order ?>" type="hidden" />
+                </div>
+            </li>
+        <?php
+            $previousIsTerminating = $rule->terminating;
+        ?>
+        <?php endforeach ?>
+    </ul>
+<?php endif ?>

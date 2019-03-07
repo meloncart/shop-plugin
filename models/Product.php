@@ -297,4 +297,27 @@ class Product extends Model
     //{
     //    return $this->optionsList->toArray();
     //}
+
+    /**
+     * Returns a list of attributes which can be used in price rule conditions
+     */
+    // public function getConditionAttributes($type = null)
+    // {
+    //     return [
+    //         'name'              => 'Name',
+    //         'description'       => 'Long Description',
+    //         'short_description' => 'Short Description',
+    //         'price'             => ['Base Price', RuleConditionBase::CAST_FLOAT],
+    //         'tax_class'         => 'Tax Class',
+    //         'sku'               => 'SKU',
+    //         'weight'            => ['Weight', RuleConditionBase::CAST_FLOAT],
+    //         'width'             => ['Width', RuleConditionBase::CAST_FLOAT],
+    //         'height'            => ['Height', RuleConditionBase::CAST_FLOAT],
+    //         'depth'             => ['Depth', RuleConditionBase::CAST_FLOAT],
+    //         'categories'        => 'Categories',
+    //         'current_price'     => ['Price', RuleConditionBase::CAST_FLOAT],
+    //         'manufacturer_link' => 'Manufacturer',
+    //         'product_type'      => 'Product Type'
+    //     ];
+    // }
 }

@@ -1,0 +1,20 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    m_value:
+        label: M value (Buy)
+        span: auto
+        commentAbove: How many units of the product should be added to the cart in order to activate the action.
+
+    n_value:
+        label: N value (Get)
+        span: auto
+        commentAbove: How many units of the product to discount in case if M products has been added to the shopping cart.
+
+    multiples:
+        label: Work with multiples
+        commentAbove: Enable this feature if you want M*2 units in the cart to discount N*2 units.
+        type: checkbox

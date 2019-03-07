@@ -1,0 +1,84 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        is_active:
+            tab: Rule Settings
+            label: Active
+            type: checkbox
+
+        name:
+            tab: Rule Settings
+            label: Name
+
+        description:
+            tab: Rule Settings
+            label: Description
+            type: textarea
+            size: tiny
+
+        date_start:
+            tab: Rule Settings
+            label: From Date
+            span: left
+            type: datepicker
+            mode: date
+
+        date_end:
+            tab: Rule Settings
+            label: To Date
+            span: right
+            type: datepicker
+            mode: date
+
+        coupon:
+            tab: Rule Settings
+            label: Coupon
+            type: relation
+
+        max_coupon_uses:
+            tab: Rule Settings
+            label: Max uses per coupon
+            span: auto
+            type: number
+
+        max_customer_uses:
+            tab: Rule Settings
+            label: Max uses per user
+            span: auto
+            type: number
+
+        user_groups:
+            label: User Groups
+            type: relation
+            tab: Rule Settings
+
+        rule_conditions:
+            tab: Conditions
+            type: RainLab\Notify\FormWidgets\ConditionBuilder
+            conditionsRuleType: cart
+
+        is_terminating:
+            tab: Action
+            label: Terminating Rule
+            comment: Stop processing other rules if this rule took effect.
+            type: checkbox
+
+        action_class_name:
+            tab: Action
+            label: Action
+            type: dropdown
+
+        is_free_shipping:
+            tab: Free Shipping
+            label: Free shipping
+            type: checkbox
+
+        products_conditions:
+            tab: Action
+            label: Products Conditions
+            type: RainLab\Notify\FormWidgets\ConditionBuilder
+            conditionsRuleType: cart-products

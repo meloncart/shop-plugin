@@ -1,0 +1,121 @@
+.rules-list-empty {
+    text-align: center;
+    background: #eee;
+    color: #555;
+    text-align: center;
+    padding: 1em 0;
+}
+
+ul.rule-list {
+    margin-top: 10px;
+    width: 500px;
+    li:hover div.drag-handle, li.drag div.drag-handle {
+        display: block;
+    }
+    li:first-child div.top-connector, li.after-terminating div.top-connector {
+        display: none;
+    }
+    li:last-child div.bottom-connector, li.terminating div.bottom-connector {
+        display: none;
+    }
+    .rule {
+        position: relative;
+        padding-right: 20px;
+        .rule_content_container {
+            border: 1px solid #999999;
+            border-radius: 5px;
+            box-shadow: 2px 2px 3px #dddddd;
+            background: #f3f3f3;
+        }
+        h4 {
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            padding: 7px 6px 6px 20px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #333333;
+            background: #dcdcdc url(../images/compound_header_bg.gif) repeat-x left bottom;
+            border-bottom: 1px solid #999999;
+            position: relative;
+        }
+    }
+    li.collapsed {
+        div.rule-description,
+        div.rule-info {
+            display: none;
+        }
+        h4 {
+            border-bottom: none;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        div.bottom-connector {
+            background: transparent url(../images/collapsed_rule_bottom_connector.png) no-repeat center top;
+        }
+    }
+    li.inactive {
+        p, h4 a {
+            color: #999999;
+        }
+    }
+    li.rule {
+        margin-bottom: 17px;
+        div.bottom-connector {
+            background: transparent url(../images/rule_bottom_connector.png) no-repeat center top;
+            position: absolute;
+            height: 20px;
+            width: 480px;
+            bottom: -19px;
+        }
+        div.top-connector {
+            background: transparent url(../images/rule_top_connector.png) no-repeat center top;
+            position: absolute;
+            height: 8px;
+            width: 480px;
+            top: -7px;
+        }
+    }
+    li.drag {
+        background: none;
+        .rule_content_container {
+            border-color: #529fd5 !important;
+            box-shadow: 0 0 4px #5a88d1;
+        }
+    }
+    div.drag-handle {
+        background: transparent url(../images/drag_handle.png) no-repeat left top;
+        position: absolute;
+        width: 8px;
+        height: 15px;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+        display: none;
+    }
+    li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+div.rule-description {
+    padding: 5px 10px 5px 10px;
+    background: #f3f3f3;
+    border-top: 1px solid #ffffff;
+    p {
+        padding-bottom: 0;
+        font-size: 11px;
+    }
+}
+
+div.rule-info {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    background: #e8e8e8;
+    border-top: 1px solid #c5c5c5;
+    p {
+        padding-bottom: 0;
+        font-size: 11px;
+        color: #666666;
+    }
+}

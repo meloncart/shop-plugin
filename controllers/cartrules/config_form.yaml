@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Cart Rule
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/cartpricerule/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\CartPriceRule
+
+# Default redirect location
+defaultRedirect: meloncart/shop/cartrules
+
+# Create page
+create:
+    title: Create Cart Rule
+    redirect: meloncart/shop/cartrules/update/:id
+    redirectClose: meloncart/shop/cartrules
+
+# Update page
+update:
+    title: Edit Cart Rule
+    redirect: meloncart/shop/cartrules
+    redirectClose: meloncart/shop/cartrules
+
+# Preview page
+preview:
+    title: Preview Cart Rule

@@ -1,0 +1,14 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    presence:
+        label: Presence
+        span: auto
+        type: dropdown
+
+    condition_type:
+        label: Condition type
+        span: auto
+        type: dropdown

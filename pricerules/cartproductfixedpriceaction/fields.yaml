@@ -1,0 +1,9 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    discount_amount:
+        label: New cart item price
+        commentAbove: Please specify a fixed price for the cart item.

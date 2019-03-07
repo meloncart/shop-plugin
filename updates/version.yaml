@@ -13,4 +13,9 @@
     - create_shipping_method_countries_table.php
     - create_shipping_methods_table.php
     - create_tax_classes_table.php
+    - create_cart_price_rules_table.php
+    - create_catalog_price_rules_table.php
+    - create_price_rule_conditions_table.php
+    - create_coupons_table.php
+    - create_user_cart_items_table.php
     - initial_seed.php
