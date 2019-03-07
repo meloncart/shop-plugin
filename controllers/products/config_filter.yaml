@@ -1,0 +1,24 @@
+scopes:
+
+    enabled:
+        label: Hide enabled
+        type: checkbox
+        conditions: is_enabled <> 1
+
+    category:
+        label: Category
+        modelClass: MelonCart\Shop\Models\Category
+        nameFrom: title
+        conditions: (exists(select * from meloncart_shop_products_categories where meloncart_shop_products_categories.product_id=meloncart_shop_products.id and  meloncart_shop_products_categories.category_id in (:filtered)))
+
+    manufacturer:
+        label: Manufacturer
+        modelClass: MelonCart\Shop\Models\Manufacturer
+        nameFrom: title
+        conditions: manufacturer_id in (:filtered)
+
+    type:
+        label: Type
+        modelClass: MelonCart\Shop\Models\ProductType
+        nameFrom: title
+        conditions: product_type_id in (:filtered)

@@ -1,0 +1,64 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        # Tax Class
+        title:
+            label: Title
+            tab: Tax Class
+
+        description:
+            label: Description
+            tab: Tax Class
+            type: textarea
+
+        is_default:
+            label: Default?
+            comment: Use this checkbox if you want the tax class to be applied to all new products by default.
+            type: checkbox
+            tab: Tax Class
+
+
+        # Rates
+        rates:
+            label: Rates
+            type: datatable
+            tab: Rates
+            columns:
+                country:
+                    title: Country Code
+                    type: dropdown
+                    strict: false
+
+                state:
+                    title: State Code
+                    type: dropdown
+                    strict: false
+                    dependsOn: country
+
+                zip:
+                    title: Zip
+                    width: 100px
+
+                city:
+                    title: City
+
+                rate:
+                    title: Rate %
+                    width: 80px
+                    align: right
+
+                priority:
+                    title: Priority
+                    width: 80px
+                    align: right
+
+                title:
+                    title: Tax Name
+
+                is_compound:
+                    title: Compound?
+                    width: 100px
+                    type: checkbox

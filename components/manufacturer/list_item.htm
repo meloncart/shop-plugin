@@ -1,0 +1,14 @@
+<article id="product-{{ product.id }}">
+    <header class="entry-header">
+        <h2><a href="{{ product.permalink }}">{{ product.title }}</a></h2>
+
+        <a href="{{ product.permalink }}">
+            {% if product.images.count() %}
+                {% set image = product.images.first() %}
+                <img src="{{ image.getThumb(320, 240) }}" alt="{{ image.description }}" title="{{ image.description }}" />
+            {% else %}
+                <img src="http://placehold.it/320x240" />
+            {% endif %}
+        </a>
+    </header>
+</article>

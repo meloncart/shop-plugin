@@ -1,0 +1,8 @@
+{% set countryId = countryId|default(form_value('billing_info[country_id]')) %}
+{% set stateId = stateId|default(form_value('billing_info[state_id]')) %}
+
+{{ form_select_state('billing_info[state_id]', countryId, stateId, {
+    id: id,
+    class: 'form-control',
+    emptyOption: ''
+}) }}

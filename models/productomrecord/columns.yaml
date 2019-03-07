@@ -1,0 +1,38 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    cost:
+        label: Cost
+        type: number
+
+    price:
+        label: Base Price
+        type: number
+
+    sku:
+        label: SKU
+        searchable: true
+
+    weight:
+        label: Weight
+        type: number
+
+    dimensions:
+        label: Dimensions
+        select: concat_ws('x', @width, @depth, @height)
+
+    hide_if_out_of_stock:
+        label: Hide if Out of Stock
+        type: partial
+        path: $/meloncart/shop/controllers/productomrecords/_column_switch.htm
+
+    units_in_stock:
+        label: Units in Stock
+        type: number
+
+    track_inventory:
+        label: Track Inventory
+        type: partial
+        path: $/meloncart/shop/controllers/productomrecords/_column_switch.htm

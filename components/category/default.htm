@@ -1,0 +1,33 @@
+{% set products = __SELF__.products %}
+
+<div class="product-list">
+    {% for row in products|batch(4) %}
+        <div class="row">
+            {% for product in row %}
+                <div class="col-sm-3 product-list-item">
+                    {% partial __SELF__ ~ "::list_item" product=product %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <li class="no-data">{{ noProductsMessage }}</li>
+    {% endfor %}
+</div>
+
+{% if products.lastPage > 1 %}
+    <ul class="pagination">
+        {% if products.currentPage > 1 %}
+            <li><a href="{{ category.permalink }}/page/{{ (products.currentPage-1) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..products.lastPage %}
+            <li class="{{ products.currentPage == page ? 'active' : null }}">
+                <a href="{{ category.permalink }}/page/{{ page }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if products.lastPage > products.currentPage %}
+            <li><a href="{{ category.permalink }}/page/{{ (products.currentPage+1) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

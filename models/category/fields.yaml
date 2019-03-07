@@ -1,0 +1,27 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Title
+        span: left
+
+    slug:
+        label: URL
+        span: right
+        attributes:
+            data-input-preset: 'input[name="Category[title]"]'
+
+    parent:
+        label: Parent
+        type: relation
+        nameFrom: title
+        emptyOption: -- No parent --
+
+    short_desc:
+        label: Short Description
+
+    description:
+        label: Description
+        type: richeditor

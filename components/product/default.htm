@@ -1,0 +1,62 @@
+<form
+        data-request="{{ __SELF__ }}::onAddToCart"
+        data-request-data="id: {{ product.id }}"
+        data-request-error="alert(jqXHR.responseJSON.result);"
+        class="product"
+>
+    <div class="row">
+        <div class="col-sm-6">
+            {% partial __SELF__ ~ "::_carousel" product=product %}
+        </div>
+        <div class="col-sm-6">
+            <h1>{{ product.title }}</h1>
+
+            <div class="description">
+                <p>{{ product.short_desc|replace({"\n":'<br/>'})|raw }}</p>
+            </div>
+
+            <hr>
+
+            <div class="price">{{ product.price }}</div>
+
+            <hr>
+
+            {% partial __SELF__ ~ "::_options" product=product %}
+            {% partial __SELF__ ~ "::_attributes" product=product %}
+
+            {% if product.product_options().count() or product.product_extras().count() %}
+                <hr>
+            {% endif %}
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="qty" class="col-sm-2 control-label">Quantity</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="qty" id="qty" value="1" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" name="add_to_cart" value="Add to Cart" class='btn btn-primary btn-block' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#product_description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+        </ul>
+        <br/>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="product_description">
+                {{ product.description|raw }}
+            </div>
+        </div>
+    </div>
+</div>
+

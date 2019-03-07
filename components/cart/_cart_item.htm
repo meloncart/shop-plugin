@@ -1,0 +1,44 @@
+<tr>
+    <td class="t_product_image">
+        <a href="{{ item.product.permalink() }}">
+            {% if item.product.images.count() %}
+            {% set cartimage = item.product.images.first() %}
+                <img src="{{ cartimage.getThumb(60, 60) }}" alt="{{ cartimage.description }}" title="{{ cartimage.description }}" />
+            {% else %}
+                <img src="http://placehold.it/60x60" />
+            {% endif %}
+        </a>
+    </td>
+    <td class="t_product_desc">
+        <h3>
+            <a href="{{ item.product.permalink() }}">{{ item.product.title }}</a>
+        </h3>
+        {% if item.options|length %}
+            {% set options = item.getOptionsStr|split("\n") %}
+            <ul class="options">
+                {% for option in options %}
+                    <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+    <td class="t_quantity text-right">
+        <input class="qty text-center" type="number" size="2" name="quantity[{{ key }}]" value="{{ item.qty }}">
+    </td>
+    <td class="t_single text-right">
+        <span class="price">{{ item.price|currency }}</span>
+    </td>
+    <td class="t_total text-right">
+        <span class="total">{{ item.getSubtotal()|currency }}</span>
+    </td>
+    <td class="t_remove text-right">
+        <a href="#" class='delete' onclick="return $('form').request('{{ __SELF__ }}::onSetQuantity', {
+            confirm: 'Are you sure?',
+            update: {'shop/minicart': '#cart'},
+            data: {
+                key: '{{ key }}',
+                qty: 0
+            }
+        });"><i class="fa fa-times"></i></a>
+    </td>
+</tr>

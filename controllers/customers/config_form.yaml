@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Customer
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/customer/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\Customer
+
+# Default redirect location
+defaultRedirect: meloncart/shop/customers
+
+# Create page
+create:
+    title: Create Customer
+    redirect: meloncart/shop/customers/update/:id
+    redirectClose: meloncart/shop/customers
+
+# Update page
+update:
+    title: Edit Customer
+    redirect: meloncart/shop/customers
+    redirectClose: meloncart/shop/customers
+
+# Preview page
+preview:
+    title: Preview Customer

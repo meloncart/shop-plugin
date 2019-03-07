@@ -1,0 +1,94 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        # Name and Description
+        is_enabled:
+            label: Enabled?
+            type: checkbox
+            default: true
+            tab: Name and Description
+
+        title:
+            label: Title
+            span: left
+            tab: Name and Description
+
+        slug:
+            label: Slug
+            span: right
+            attributes:
+                data-input-preset: 'input[name="Manufacturer[title]"]'
+            tab: Name and Description
+
+        description:
+            label: Description
+            type: richeditor
+            tab: Name and Description
+
+
+
+        # Address and Contact
+        email:
+            label: Email
+            span: left
+            tab: Address and Contact
+
+        url:
+            label: URL
+            span: right
+            tab: Address and Contact
+
+        street_addr:
+            label: Street Address
+            type: textarea
+            tab: Address and Contact
+
+        city:
+            label: City
+            tab: Address and Contact
+            span: left
+
+        zip:
+            label: Zip / Postal Code
+            tab: Address and Contact
+            span: right
+
+        phone:
+            label: Phone
+            tab: Address and Contact
+            span: left
+
+        fax:
+            label: Fax
+            tab: Address and Contact
+            span: right
+
+        country:
+            label: Country
+            type: dropdown
+            tab: Address and Contact
+            span: left
+            placeholder: -- select country --
+
+        state:
+            label: State
+            type: dropdown
+            tab: Address and Contact
+            span: right
+            dependsOn: country
+            placeholder: -- select state --
+
+
+
+        # Images
+        images:
+            label: Images
+            type: fileupload
+            tab: Images
+            mode: image
+            image-width: 240
+            image-height: 110
+            context: update

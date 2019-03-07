@@ -1,0 +1,68 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        # Option
+
+        title:
+            label: Title
+            type: text
+            tab: Extra
+            comment: Specify the option description, e.g. "Gift wrap".
+
+        description:
+            label: Description
+            type: richeditor
+            tab: Extra
+
+        price:
+            label: Price
+            type: number
+            tab: Extra
+            default: 0
+            span: left
+            comment: Specify a value to be added to the product price if this option is selected.
+            required: true
+
+        # Images
+
+        images:
+            label: Images
+            type: fileupload
+            tab: Images
+            mode: image
+            image-width: 240
+            image-height: 110
+
+        # Shipping
+
+        weight:
+            label: Weight
+            type: number
+            tab: Shipping
+            default: 0
+            span: left
+
+        width:
+            label: Width
+            type: number
+            tab: Shipping
+            default: 0
+            span: right
+
+        height:
+            label: Height
+            type: number
+            tab: Shipping
+            default: 0
+            span: left
+
+        depth:
+            label: Depth
+            type: number
+            tab: Shipping
+            default: 0
+            span: right

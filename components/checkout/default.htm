@@ -1,0 +1,9 @@
+<form>
+    <div id="checkout-progress">
+        {% partial __SELF__ ~ "::_progress" checkout_step=checkout_step %}
+    </div>
+
+    <div id="checkout-steps">
+        {% partial __SELF__ ~ "::_steps" checkout_step=checkout_step checkout_info=checkout_info %}
+    </div>
+</form>

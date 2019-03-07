@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: TaxClass
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/taxclass/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\TaxClass
+
+# Default redirect location
+defaultRedirect: meloncart/shop/taxclasses
+
+# Create page
+create:
+    title: Create Tax Class
+    redirect: meloncart/shop/taxclasses/update/:id
+    redirectClose: meloncart/shop/taxclasses
+
+# Update page
+update:
+    title: Edit Tax Class
+    redirect: meloncart/shop/taxclasses
+    redirectClose: meloncart/shop/taxclasses
+
+# Preview page
+preview:
+    title: Preview Tax Class

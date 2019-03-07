@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product Type
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/producttype/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\ProductType
+
+# Default redirect location
+defaultRedirect: meloncart/shop/producttypes
+
+# Create page
+create:
+    title: Create Product Type
+    redirect: meloncart/shop/producttypes/update/:id
+    redirectClose: meloncart/shop/producttypes
+
+# Update page
+update:
+    title: Edit Product Type
+    redirect: meloncart/shop/producttypes
+    redirectClose: meloncart/shop/producttypes
+
+# Preview page
+preview:
+    title: Preview Product Type

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Manufacturer
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/manufacturer/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\Manufacturer
+
+# Default redirect location
+defaultRedirect: meloncart/shop/manufacturers
+
+# Create page
+create:
+    title: Create Manufacturer
+    redirect: meloncart/shop/manufacturers/update/:id
+    redirectClose: meloncart/shop/manufacturers
+
+# Update page
+update:
+    title: Edit Manufacturer
+    redirect: meloncart/shop/manufacturers
+    redirectClose: meloncart/shop/manufacturers
+
+# Preview page
+preview:
+    title: Preview Manufacturer

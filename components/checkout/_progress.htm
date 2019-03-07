@@ -1,0 +1,40 @@
+{% set steps = {
+    'billing_info': 'Billing info',
+    'shipping_info': 'Shipping info',
+    'review': 'Review'
+} %}
+{% set current_found = false %}
+
+<dl class="tabs contained five-up">
+    {% for step, name in steps %}
+
+        {% if step == checkout_step %}
+            {% set current_found = true %}
+        {% endif %}
+
+        <dd class="{% if step == checkout_step %}active{% endif%}">
+
+            {% if not current_found or step == checkout_step %}
+                <a href="#" onclick="return $(this).getForm().sendRequest('on_action', {
+                    update: {
+                        'checkout-steps': 'checkout:steps',
+                        'checkout-progress': 'checkout:progress'
+                    },
+                    extraFields: {
+                        'move_to': '{{ step }}'
+                    },
+                    onSuccess: function() {
+                        init_custom_forms();
+                    }
+                });">
+                    <span class="visible-sm-inline"><i class="fa fa-check"> {{ loop.index }}.</i></span>
+                    <span class="hidden-sm-inline"><i class="fa fa-check"> {{ name }}</i></span>
+                </a>
+            {% else %}
+                <span class="visible-sm-inline">{{ loop.index }}.</span>
+                <span class="hidden-sm-inline">{{ name }}</span>
+            {% endif %}
+
+        </dd>
+    {% endfor %}
+</dl>

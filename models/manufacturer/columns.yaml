@@ -1,0 +1,37 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Title
+        searchable: true
+
+    email:
+        label: Email
+        searchable: true
+
+    phone:
+        label: Phone
+
+    fax:
+        label: Fax
+
+    url:
+        label: URL
+        searchable: true
+
+    country:
+        label: Country
+        relation: country
+        select: @name
+
+    # products:
+    #     label: Products
+    #     relation: products
+    #     select: @title
+
+    product_count:
+        label: Products
+        type: number
+        select: (SELECT COUNT(1) FROM meloncart_shop_products WHERE manufacturer_id = meloncart_shop_manufacturers.id)

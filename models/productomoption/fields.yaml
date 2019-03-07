@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    title:
+        label: Title
+
+    values:
+        label: Values
+        comment: One value per line
+        type: textarea

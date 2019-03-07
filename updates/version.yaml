@@ -1,0 +1,16 @@
+1.0.1:
+    - First version of MelonCart
+    - create_categories_table.php
+    - create_customers_table.php
+    - create_manufacturers_table.php
+    - create_order_statuses_table.php
+    - create_orders_table.php
+    - create_product_types_table.php
+    - create_product_options_table.php
+    - create_product_extras_table.php
+    - create_products_categories_table.php
+    - create_products_table.php
+    - create_shipping_method_countries_table.php
+    - create_shipping_methods_table.php
+    - create_tax_classes_table.php
+    - initial_seed.php

@@ -1,0 +1,35 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/meloncart/shop/models/productomoption/columns.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\ProductOMOption
+
+# List Title
+title: Manage Product Options
+
+# Link URL for each record
+recordUrl: meloncart/shop/productomoptions/update/:id
+
+# Message to display if the list is empty
+noRecordsMessage: backend::lang.list.no_records
+
+# Records to display per page
+recordsPerPage: 20
+
+# Displays the list column set up button
+showSetup: false
+
+# Displays the sorting link on each column
+showSorting: false
+
+# Default sorting column
+# defaultSort:
+#     column: created_at
+#     direction: desc
+
+# Display checkboxes next to each record
+# showCheckboxes: true

@@ -1,0 +1,13 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Title
+
+    group:
+        label: Group
+
+    price:
+        label: Price

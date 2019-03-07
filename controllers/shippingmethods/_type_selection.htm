@@ -1,0 +1,27 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h4 class="modal-title" id="chooseTypeLabel">Choose a Shipping Type</h4>
+</div>
+<div class="modal-body">
+
+	<div class='list-preview'>
+		<div class="control-simplelist is-selectable is-scrollable size-large" data-control="simplelist">
+			<ul>
+				<?php foreach ( $item_types as $class => $details ): ?>
+					<li data-dismiss="modal" onclick="window.location='<?= Backend::url('meloncart/shop/shippingmethods/create/'.urlencode($class)) ?>'">
+						<a href="<?= Backend::url('meloncart/shop/shippingmethods/create/'.urlencode($class)) ?>">
+							<h5 class='heading'><?= $details['label'] ?></h5>
+							<?php if ( !empty($details['description']) ): ?>
+								<p class='description'><?= $details['description'] ?></p>
+							<?php endif; ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+</div>

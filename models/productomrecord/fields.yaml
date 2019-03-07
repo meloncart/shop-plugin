@@ -1,0 +1,88 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        price:
+            label: Base Price
+            type: number
+            tab: Pricing
+            span: left
+            comment: The product price will be visible on the front-end store. You can set different prices for different customer groups using the tier price section below.
+
+        cost:
+            label: Cost
+            type: number
+            tab: Pricing
+            span: right
+            comment: The product cost will be subtracted from the price to get the revenue value in reports. Leave this value empty if the revenue should match the product price.
+
+
+        # Images
+
+        # images:
+        #     label: Images
+        #     type: fileupload
+        #     tab: Images
+        #     mode: image
+        #     image-width: 240
+        #     image-height: 110
+
+
+        # Shipping
+
+        weight:
+            label: Weight
+            type: number
+            tab: Shipping
+            span: left
+
+        width:
+            label: Width
+            type: number
+            tab: Shipping
+            span: right
+
+        height:
+            label: Height
+            type: number
+            tab: Shipping
+            span: left
+
+        depth:
+            label: Depth
+            type: number
+            tab: Shipping
+            span: right
+
+
+        # Inventory
+
+        track_inventory:
+            label: Track Inventory
+            type: balloon-selector
+            tab: Inventory
+            span: left
+            comment: Enable this checkbox if you have limited number of this product in stock.
+            options:
+                -1: Inherit
+                1: Yes
+                0: No
+
+        hide_if_out_of_stock:
+            label: Hide if Out of Stock
+            type: balloon-selector
+            tab: Inventory
+            span: right
+            comment: Remove the product from the website if is out of stock.
+            options:
+                -1: Inherit
+                1: Yes
+                0: No
+
+        units_in_stock:
+            label: Units in Stock
+            type: number
+            tab: Inventory
+            comment: Specify how many units of the product there are left in stock at the moment.

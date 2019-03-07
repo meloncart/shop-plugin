@@ -1,0 +1,17 @@
+{% if product.product_options().count() %}
+    <div class="form-horizontal">
+        {% for option in product.product_options %}
+            <div class="form-group">
+                <label for="poption{{ option.id }}" class="col-sm-2 control-label">{{ option.title }}</label>
+                <div class="col-sm-10">
+                    <select name="options[{{ option.id }}]" class="form-control" id="poption{{ option.id }}">
+                        {% set rows = option.values|split("\n") %}
+                        {% for row in rows %}
+                            <option value="{{ row }}">{{ row }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

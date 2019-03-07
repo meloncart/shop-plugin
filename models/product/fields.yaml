@@ -1,0 +1,270 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        is_enabled:
+            label: Enabled?
+            type: checkbox
+            tab: Product
+            default: false
+            context: update
+            comment: Use this checkbox to make the product visible on the frontend.
+
+        title:
+            label: Title
+            span: left
+            tab: Product
+
+        slug:
+            label: URL
+            span: right
+            attributes:
+                data-input-preset: 'input[name="Product[title]"]'
+            tab: Product
+
+        sku:
+            label: SKU
+            tab: Product
+            context: update
+            required: true
+
+        short_desc:
+            label: Short Description
+            tab: Product
+            context: update
+
+        description:
+            label: Description
+            type: richeditor
+            tab: Product
+            context: update
+
+        product_type:
+            label: Product Type
+            span: left
+            type: relation
+            nameFrom: title
+            tab: Product
+            context: update
+
+        manufacturer:
+            label: Manufacturer
+            span: right
+            type: relation
+            nameFrom: title
+            tab: Product
+            context: update
+
+
+        # Pricing
+
+        tax_class:
+            label: Tax Class
+            type: relation
+            nameFrom: title
+            tab: Pricing
+            context: update
+
+        base_price:
+            label: Base Price
+            type: number
+            tab: Pricing
+            default: 0
+            span: left
+            comment: The product price will be visible on the front-end store. You can set different prices for different customer groups using the tier price section below.
+            context: update
+            required: true
+
+        cost:
+            label: Cost
+            type: number
+            tab: Pricing
+            default: 0
+            span: right
+            comment: The product cost will be subtracted from the price to get the revenue value in reports. Leave this value empty if the revenue should match the product price.
+            context: update
+
+        is_on_sale:
+            label: On Sale?
+            type: checkbox
+            tab: Pricing
+            default: false
+            context: update
+            comment: Select to override the catalog price rules for this product and enter the sale price or discount below directly.
+
+        sale_price:
+            label: Sale Price or Discount
+            tab: Pricing
+            context: update
+            comment: Enter the sale price as a fixed sale price (e.g. 5.00), the discount amount (e.g. -5.00) or discount percentage (e.g. 25.00%). The discount amount and percentage will be subtracted from the regular price to calculate the sale price.
+            trigger:
+                action: show
+                field: is_on_sale
+                condition: checked
+
+        # Images
+
+        images:
+            label: Images
+            type: fileupload
+            tab: Images
+            mode: image
+            image-width: 240
+            image-height: 110
+            context: update
+
+
+        # Shipping
+
+        weight:
+            label: Weight
+            type: number
+            tab: Shipping
+            default: 0
+            span: left
+            context: update
+
+        width:
+            label: Width
+            type: number
+            tab: Shipping
+            default: 0
+            span: right
+            context: update
+
+        height:
+            label: Height
+            type: number
+            tab: Shipping
+            default: 0
+            span: left
+            context: update
+
+        depth:
+            label: Depth
+            type: number
+            tab: Shipping
+            default: 0
+            span: right
+            context: update
+
+
+        # Inventory
+
+        track_inventory:
+            label: Track Inventory
+            type: checkbox
+            tab: Inventory
+            default: 0
+            span: left
+            comment: Enable this checkbox if you have limited number of this product in stock.
+            context: update
+
+        hide_if_out_of_stock:
+            label: Hide if Out of Stock
+            type: checkbox
+            tab: Inventory
+            default: 1
+            span: right
+            comment: Remove the product from the website if is out of stock.
+            context: update
+
+        units_in_stock:
+            label: Units in Stock
+            type: number
+            tab: Inventory
+            default: 0
+            comment: Specify how many units of the product there are left in stock at the moment.
+            context: update
+
+
+        # Categories
+
+        categories:
+            label: Categories
+            type: relation
+            tab: Categories
+            nameFrom: title
+            context: update
+            comment: Select the categories this product belongs in.
+
+        # Options
+
+        product_options_hint:
+            type: hint
+            path: product_options_hint
+            tab: Options
+            context: update
+
+        product_options:
+            label: Options
+            type: MelonCart\Shop\FormWidgets\ListRelation
+            tab: Options
+            context: update
+
+        # Extras
+
+        product_extras_hint:
+            type: hint
+            path: product_extras_hint
+            tab: Extras
+            context: update
+
+        product_extras:
+            label: Extras
+            type: MelonCart\Shop\FormWidgets\ListRelation
+            tab: Extras
+            context: update
+
+
+        # Options
+
+#        optionsList:
+#            label: Options
+#            type: MelonCart\Shop\FormWidgets\ProdOptionList
+#            tab: Options
+#            context: update
+#            # Model List Column configuration
+#            listOptions:
+#                list: $/meloncart/shop/models/productomrecord/columns.yaml
+#
+#                # Model Class name
+#                modelClass: MelonCart\Shop\Models\ProductOMRecord
+#
+#                # List Title
+#                title: Manage Product Options
+#
+#                # Link URL for each record
+#                #recordUrl: meloncart/shop/productomrecords/update/:id
+#                recordOnClick: showOMRecordModal(this, :handler, :id);
+#
+#                # Message to display if the list is empty
+#                noRecordsMessage: backend::lang.list.no_records
+#
+#                # Records to display per page
+#                recordsPerPage: 15
+#
+#                # Displays the list column set up button
+#                showSetup: true
+#
+#                # Displays the sorting link on each column
+#                showSorting: true
+#
+#                # Default sorting column
+#                defaultSort:
+#                    column: cost
+#                    direction: asc
+#
+#                # Display checkboxes next to each record
+#                showCheckboxes: true
+#
+#                # Toolbar widget configuration
+#                toolbar:
+#                    # Partial for toolbar buttons
+#                    buttons: $/meloncart/shop/formwidgets/prodoptionlist/partials/_toolbar.htm
+#
+#                    # Search widget configuration
+#                    search:
+#                        prompt: backend::lang.list.search_prompt

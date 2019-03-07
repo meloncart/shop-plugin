@@ -1,0 +1,122 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Name
+        span: auto
+
+    surname:
+        label: Surname
+        span: auto
+
+tabs:
+    fields:
+        # Customer
+        email:
+            label: Email
+            tab: Customer
+            span: full
+
+        company:
+            label: Company
+            tab: Customer
+            span: left
+
+        phone:
+            label: Phone
+            tab: Customer
+            span: right
+
+        notes:
+            label: Notes
+            tab: Customer
+            span: full
+
+
+
+        # Billing
+        country:
+            label: Country
+            tab: Billing Details
+            type: dropdown
+            span: left
+            placeholder: -- select --
+
+        state:
+            label: State
+            tab: Billing Details
+            type: dropdown
+            span: right
+            placeholder: -- select --
+            dependsOn: country
+
+        street_addr:
+            label: Street Address
+            tab: Billing Details
+            span: full
+
+        city:
+            label: City
+            tab: Billing Details
+            span: left
+
+        zip:
+            label: Zip/Postal Code
+            tab: Billing Details
+            span: right
+
+
+
+        # Shipping
+        shipping_name:
+            label: Name
+            tab: Shipping Details
+            span: left
+
+        shipping_surname:
+            label: Surname
+            tab: Shipping Details
+            span: right
+
+        shipping_company:
+            label: Company
+            tab: Shipping Details
+            span: left
+
+        shipping_phone:
+            label: Phone
+            tab: Shipping Details
+            span: right
+
+        shipping_country:
+            label: Country
+            tab: Shipping Details
+            type: dropdown
+            span: left
+            placeholder: -- select --
+
+        shipping_state:
+            label: State
+            tab: Shipping Details
+            type: dropdown
+            span: right
+            placeholder: -- select --
+            dependsOn: shipping_country
+
+        shipping_street_addr:
+            label: Street Address
+            tab: Shipping Details
+            span: full
+
+        shipping_city:
+            label: City
+            tab: Shipping Details
+            span: left
+
+        shipping_zip:
+            label: Zip/Postal Code
+            tab: Shipping Details
+            span: right

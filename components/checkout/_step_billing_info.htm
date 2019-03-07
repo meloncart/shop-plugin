@@ -1,0 +1,141 @@
+<div class="tab-content">
+    <h3 class="checkout-title">Billing info</h3>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <!-- first name -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_first_name">First Name</label>
+                        <input class="form-control" name="billing_info[first_name]" value="{{ checkout_data.billing.first_name }}" id="billing_first_name" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- last name -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_last_name">Last Name</label>
+                        <input class="form-control" name="billing_info[last_name]" value="{{ checkout_data.billing.last_name }}" id="billing_last_name" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- email -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_email">Email</label>
+                        <input id="billing_email" class="form-control" name="billing_info[email]" value="{{ checkout_data.billing.email }}" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- phone -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_phone">Phone</label>
+                        <input id="billing_phone" type="text" value="{{ checkout_data.billing.phone }}" class="form-control" name="billing_info[phone]"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <!-- company -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_company">Company</label>
+                        <input id="billing_company" type="text" value="{{ checkout_data.billing.company }}" class="form-control" name="billing_info[company]" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- street address -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="billing_street_addr">Street Address</label>
+                        <input id="billing_street_addr" class="form-control" name="billing_info[street_addr]" type="text" value="{{ checkout_data.billing.street_addr }}" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- city -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="billing_city">City</label>
+                        <input id="billing_city" type="text" class="form-control" name="billing_info[city]" value="{{ checkout_data.billing.city }}" />
+                    </div>
+                </div>
+
+                <!-- zip -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="billing_zip">Zip/Postal Code</label>
+                        <input id="billing_zip" type="text" class="form-control" name="billing_info[zip]" value="{{ checkout_data.billing.zip }}" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- country -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="billing_country">Country</label>
+                        {{ form_select_country('billing_info[country_id]', checkout_data.billing.country_id, {
+                            id: 'billing_country',
+                            class: 'form-control',
+                            emptyOption: '',
+                            'data-request': 'onInit',
+                            'data-request-update': {
+                                (__SELF__ ~ '::_step_billing_info_state_dropdown'): '#billing_states'
+                            }
+                        }) }}
+                    </div>
+                </div>
+
+                <!-- state -->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="billing_state">State</label>
+                        <div id="billing_states">
+                            {% partial __SELF__ ~ "::_step_billing_info_state_dropdown" countryId=checkout_data.billing.country_id stateId=checkout_data.billing.state_id %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row buttons">
+    <div class="col-sm-6">
+        <a href="{{ cartPage }}" class="btn">
+            <i class="fa fa-arrow-left"></i> &nbsp; Previous: Cart
+        </a>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="text-right">
+            <input type="hidden" class="form-control" name="billing_info[checkout_step]" value="{{ checkout_step }}" />
+            <button type="submit" class="btn btn-primary" onclick="$(this).closest('FORM').request('{{ __SELF__ }}::onSetBillingInfo', {
+                update: {'{{ __SELF__ ~ "::_step_shipping_info" }}': '#checkout-steps'}
+            }); return false;">
+                Next: Shipping Information &nbsp; <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+

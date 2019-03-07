@@ -1,0 +1,125 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        # Origin
+        origin_country_id:
+            label: Country
+            type: dropdown
+            span: left
+            tab: Origin
+
+        origin_state_id:
+            label: State
+            type: dropdown
+            span: right
+            tab: Origin
+            dependsOn: origin_country_id
+
+        origin_street_addr:
+            label: Street Address
+            required: true
+            type: textarea
+            span: full
+            tab: Origin
+
+        origin_zip:
+            label: Zip/Postal Code
+            required: true
+            type: text
+            span: left
+            tab: Origin
+
+        origin_city:
+            label: City
+            type: text
+            span: right
+            tab: Origin
+
+
+
+        # Sender
+        sender_name:
+            label: Sender Name
+            required: true
+            type: text
+            span: left
+            tab: Sender
+
+        sender_surname:
+            label: Sender Surname
+            required: true
+            type: text
+            span: right
+            tab: Sender
+
+        sender_company:
+            label: Company
+            type: text
+            span: full
+            tab: Sender
+
+        sender_phone:
+            label: Phone
+            type: text
+            span: full
+            tab: Sender
+            comment: 10 digits required (including area code), with no punctuation. Use format: 2125551234.
+
+
+
+        # Units
+        weight_unit:
+            label: Weight Unit
+            required: true
+            type: dropdown
+            span: full
+            tab: Units
+
+        dimension_unit:
+            label: Dimension Unit
+            required: true
+            type: dropdown
+            span: full
+            tab: Units
+
+
+
+        # Origin
+        default_country_id:
+            label: Country
+            type: dropdown
+            span: left
+            tab: Default Shipping Location
+
+        default_state_id:
+            label: State
+            type: dropdown
+            span: right
+            tab: Default Shipping Location
+            dependsOn: default_country_id
+
+        default_zip:
+            label: Zip/Postal Code
+            required: true
+            type: text
+            span: left
+            tab: Default Shipping Location
+
+        default_city:
+            label: City
+            type: text
+            span: right
+            tab: Default Shipping Location
+
+
+
+        # Parameters
+        default_city:
+            label: Display shipping service errors
+            type: checkbox
+            span: full
+            comment: Display shipping service errors like "Please specify a valid ZIP code" on the front-end website. This feature should be implemented in the front-end partials. Please refer to the documentation for details.
+            tab: Default Shipping Location

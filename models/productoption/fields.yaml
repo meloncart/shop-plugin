@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+
+fields:
+    title:
+        label: Title
+        type: text
+
+    values:
+        label: Options
+        type: textarea
+        size: large

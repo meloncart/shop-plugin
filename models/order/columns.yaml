@@ -1,0 +1,35 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    color:
+        label: -
+        relation: status
+        select: "@color"
+
+    id:
+        label: ID
+
+    created_at:
+        label: Date and Time
+
+    status:
+        label: Status
+        relation: status
+        select: "@title"
+
+    billing_email:
+        label: Email
+
+    subtotal:
+        label: Subtotal
+
+    shipping:
+        label: Shipping
+
+    total:
+        label: Total
+
+    tax:
+        label: Tax

@@ -1,0 +1,39 @@
+<form
+        data-request="{{ __SELF__ }}::onUpdateCart"
+        data-request-error="alert(jqXHR.responseJSON.result);"
+        id="cart"
+>
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="t_product" colspan="2">Product</th>
+                    <th class="t_quantity text-right">Quantity</th>
+                    <th class="t_single text-right">Single price</th>
+                    <th class="t_total text-right">Total price</th>
+                    <th class="t_remove text-right">&nbsp;</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    {% for key, item in cart.items %}
+                        {% partial __SELF__ ~ "::_cart_item" key=key item=item %}
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="t_noitems text-center">There are no items in the cart.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <input type="submit" class="btn btn-default" value="Update" />
+            <a class='btn btn-primary' href="{{ checkoutPage }}">Continue to Checkout</a>
+
+        </div>
+    </div>
+</form>

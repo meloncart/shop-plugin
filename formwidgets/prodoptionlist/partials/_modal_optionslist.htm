@@ -1,0 +1,80 @@
+<?php if (!isset($fatalError)): ?>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="modal-title">Product Options</h4>
+	</div>
+	<div class="modal-body">
+		<form data-request="<?= $this->getEventHandler('onDeleteOptions') ?>" data-request-success="$el.closest('.modal').modal('hide');" data-popup-load-indicator>
+			<?php /*
+			<div class='toolbar-widget'>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadCreateOptionModal') ?>">Add Option</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onDeleteOptions') ?>">Delete Selected</button>
+			</div>
+			<br/>
+
+			<?= $list ?>
+			*/ ?>
+
+			<div class='toolbar-widget'>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadCreateOptionModal') ?>">Add Option</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onDeleteOptions') ?>" data-request-confirm="Are you sure you wish to delete these product options?" data-request-success="$.request('<?= $this->getEventHandler('onRefreshRecords') ?>')" data-popup-load-indicator>Delete Selected</button>
+			</div>
+			<br/>
+
+			<div id="ProdOMOptionLists" class="control-list" data-control="listwidget">
+				<table id="tblOptions" class="table data" data-control="rowlink">
+					<thead>
+						<tr>
+							<th class="list-checkbox">
+								&nbsp;
+							</th>
+							<th><span>Title</span></th>
+							<th><span>Code</span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php if ( !$options ): ?>
+							<tr><td colspan="3" class='text-center'>This product currently has no options.</td></tr>
+						<?php else: ?>
+							<?php foreach ( $options as $option ): ?>
+								<tr class='rowlink'>
+									<td class='list-checkbox nolink'>
+										<button id="update_prodomoption_<?= $option->id ?>" type="button" class="hidden" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadUpdateOptionModal') ?>" data-request-data="id: '<?= $option->id ?>'">Update</button>
+
+										<div class="checkbox custom-checkbox nolabel">
+											<input type="checkbox" name="id[]" id="Lists-checkbox-<?= $option->id ?>" value="<?= $option->id ?>">
+											<label for="Lists-checkbox-<?= $option->id ?>">Check</label>
+										</div>
+									</td>
+									<td><a href='#' onclick="$('#update_prodomoption_<?= $option->id ?>').trigger('click'); return false;" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadUpdateOptionModal') ?>" data-request-data="id: '<?= $option->id ?>'"><?= $option->title ?></a></td>
+									<td><a href='#' onclick="$('#update_prodomoption_<?= $option->id ?>').trigger('click'); return false;" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadUpdateOptionModal') ?>" data-request-data="id: '<?= $option->id ?>'"><?= $option->code ?></a></td>
+								</tr>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+<?php else: ?>
+	<div class="modal-body">
+		<div class="callout callout-danger">
+			<div class="header">
+				<i class="icon-warning"></i>
+				<h3>Error</h3>
+				<p><?= $fatalError ?></p>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button
+			type="button"
+			class="btn btn-default"
+			data-dismiss="popup">
+			<?= e(trans('backend::lang.form.close')) ?>
+		</button>
+	</div>
+<?php endif ?>

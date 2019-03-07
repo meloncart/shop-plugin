@@ -1,0 +1,9 @@
+{% if checkout_step == 'billing_info' %}
+    {% partial __SELF__ ~ "::_step_billing_info" checkout_step=checkout_step checkout_info=checkout_info %}
+{% elseif checkout_step == 'shipping_info' %}
+    {% partial __SELF__ ~ "::_step_shipping_info" checkout_step=checkout_step checkout_info=checkout_info %}
+{% elseif checkout_step == 'shipping_method' %}
+    {% partial __SELF__ ~ "::_step_shipping_method" checkout_step=checkout_step checkout_info=checkout_info %}
+{% elseif checkout_step == 'review' %}
+    {% partial __SELF__ ~ "::_step_review" checkout_step=checkout_step checkout_info=checkout_info %}
+{% endif %}

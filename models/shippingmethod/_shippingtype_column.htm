@@ -1,0 +1,5 @@
+<?php
+    $manager = \MelonCart\Shop\Classes\ShippingTypeManager::instance();
+    $type = $manager->resolveItemType($value);
+
+    echo $type ? $type['label'] : 'Unknown';

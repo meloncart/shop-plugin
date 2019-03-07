@@ -1,0 +1,38 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Title
+        searchable: true
+
+    type:
+        label: Shipping Type
+        type: partial
+        path: ~/plugins/meloncart/shop/models/shippingmethod/_shippingtype_column.htm
+
+    description:
+        label: Description
+        searchable: true
+
+    enabled_on_frontend:
+        label: Enabled on front-end
+        type: switch
+
+    enabled_on_backend:
+        label: Enabled in Admin
+        type: switch
+
+    is_taxable:
+        label: Taxable
+        type: switch
+
+    handling_fee:
+        label: Handling Fee
+
+    min_weight_allowed:
+        label: Min Weight
+
+    max_weight_allowed:
+        label: Max Weight

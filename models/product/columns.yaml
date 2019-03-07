@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    title:
+        label: Title
+        searchable: true
+
+    images:
+        label: Image
+        type: partial
+        path: ~/plugins/meloncart/shop/controllers/products/_column_product_image.htm
+        sortable: false
+
+    slug:
+        label: URL
+        searchable: true
+
+    sku:
+        label: SKU
+        searchable: true
+
+    units_in_stock:
+        label: Units In Stock

@@ -1,0 +1,65 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        enabled_on_frontend:
+            label: Enabled on Frontend?
+            type: checkbox
+            span: left
+            default: true
+            comment: Customers will be able to select this shipping option during checkout.
+            tab: General
+
+        enabled_on_backend:
+            label: Enabled on Backend?
+            type: checkbox
+            span: right
+            default: true
+            comment: Administrators will be able to select this shipping option while manually creating orders.
+            tab: General
+
+        title:
+            label: Title
+            comment: Title of the shipping option. It will be displayed on your checkout page.
+            tab: General
+
+        description:
+            label: Description
+            type: richeditor
+            comment: If provided, it will be displayed on your checkout page.
+            tab: General
+
+        handling_fee:
+            label: Handling Fee
+            comment: The handling fee will be added to the shipping quote.
+            default: 0
+            type: number
+            tab: General
+
+        min_weight:
+            label: Minimum Weight
+            span: left
+            type: number
+            default: 0
+            comment: The shipping option will be ignored if the package weight is less than the specified value. Use a value of 0 to accept all weights.
+            tab: General
+
+        max_weight:
+            label: Maximum Weight
+            span: right
+            type: number
+            default: 0
+            comment: The shipping option will be ignored if the package weight is more than the specified value. Use a value of 0 to accept all weights.
+            tab: General
+
+        countries:
+            label: Countries
+            type: relation
+            comment: Countries the shipping method is applicable to. Uncheck all countries to make the shipping method applicable to any country.
+            tab: Countries
+
+
+
+

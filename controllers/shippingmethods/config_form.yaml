@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Shipping Method
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/shippingmethod/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\ShippingMethod
+
+# Default redirect location
+defaultRedirect: meloncart/shop/shippingmethods
+
+# Create page
+create:
+    title: Create Shipping Method
+    redirect: meloncart/shop/shippingmethods/update/:id
+    redirectClose: meloncart/shop/shippingmethods
+
+# Update page
+update:
+    title: Edit Shipping Method
+    redirect: meloncart/shop/shippingmethods
+    redirectClose: meloncart/shop/shippingmethods
+
+# Preview page
+preview:
+    title: Preview Shipping Method

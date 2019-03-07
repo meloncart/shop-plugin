@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Name
+
+    surname:
+        label: Surname
+
+    email:
+        label: Email
+
+    company:
+        label: Company
+
+    phone:
+        label: Phone
+
+    created_at:
+        label: Created At
+

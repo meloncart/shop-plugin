@@ -1,0 +1,35 @@
+<?php if (!isset($fatalError)): ?>
+	<form data-request="<?= $this->getEventHandler('onCreateOption') ?>" data-request-success="$el.closest('.modal').modal('hide');" data-popup-load-indicator>
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Add Product Option</h4>
+		</div>
+		<div class="modal-body">
+			<?= $form->render() ?>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onLoadOptionsModal') ?>">Cancel</button>
+			<button type="submit" class="btn btn-primary oc-icon-plus" data-dismiss="modal" data-control="popup" data-handler="<?= $this->getEventHandler('onCreateOption') ?>" data-request-success="$.request('<?= $this->getEventHandler('onRefreshRecords') ?>')" data-popup-load-indicator>Add Option</button>
+		</div>
+
+	</form>
+<?php else: ?>
+	<div class="modal-body">
+		<div class="callout callout-danger">
+			<div class="header">
+				<i class="icon-warning"></i>
+				<h3>Error</h3>
+				<p><?= $fatalError ?></p>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button
+			type="button"
+			class="btn btn-default"
+			data-dismiss="popup">
+			<?= e(trans('backend::lang.form.close')) ?>
+		</button>
+	</div>
+<?php endif ?>

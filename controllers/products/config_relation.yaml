@@ -1,0 +1,21 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+product_options:
+    label: Product Options
+    list: ~/plugins/meloncart/shop/models/productoption/columns.yaml
+    form: ~/plugins/meloncart/shop/models/productoption/fields.yaml
+    emptyMessage: No product options yet.
+    view:
+        showSorting: false
+        toolbarButtons: create|delete
+
+product_extras:
+    label: Product Extras
+    list: ~/plugins/meloncart/shop/models/productextra/columns.yaml
+    form: ~/plugins/meloncart/shop/models/productextra/fields.yaml
+    emptyMessage: No product extras yet.
+    view:
+        showSorting: false
+        toolbarButtons: create|delete

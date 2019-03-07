@@ -1,0 +1,10 @@
+<div data-control="toolbar" class="loading-indicator-container">
+	<div class="btn-group">
+		<a href="#" data-control="popup" data-handler="<?= $this->widget->formOptionsList->getEventHandler('onLoadChangeOptions') ?>" class="btn btn-primary btn-sm oc-icon-plus">Add Record</a>
+		<button data-request="<?= $this->widget->formOptionsList->getEventHandler('onGenerateRecords') ?>" data-load-indicator="Generating records..." class="btn btn-default btn-sm oc-icon-magic">Generate Records</button>
+	</div>
+
+	<div class="btn-group">
+		<a href="#" data-control="popup" data-handler="<?= $this->widget->formOptionsList->getEventHandler('onLoadOptionsModal') ?>" class="btn btn-default btn-sm oc-icon-plus">Add/Remove Options</a>
+	</div>
+</div>

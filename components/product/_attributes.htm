@@ -1,0 +1,19 @@
+{% if product.product_extras().count() %}
+    <div class="form-horizontal">
+        {% for extra in product.product_extras %}
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                {% if extra.images().count() %}
+                    {% set image = extra.images.first() %}
+                    <img src="{{ image.getThumb(100, 50) }}" alt="{{ image.description }}" title="{{ image.description }}" />
+                {% endif %}
+
+                <label for="pextra{{ extra.id }}">
+                    <input type="checkbox" name="extras[]" value="{{ extra.id }}" id="pextra{{ extra.id }}" />
+                    {{ extra.title }} ({{ extra.price }})
+                </label>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
