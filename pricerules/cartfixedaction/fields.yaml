@@ -1,0 +1,9 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    discount_amount:
+        label: Discount amount
+        commentAbove: Please specify an amount  to subtract from the shopping cart subtotal.

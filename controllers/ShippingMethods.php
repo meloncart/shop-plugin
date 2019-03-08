@@ -22,7 +22,7 @@ class ShippingMethods extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('MelonCart.Shop', 'meloncart', 'shippingmethods');
+        BackendMenu::setContext('MelonCart.Shop', 'shop', 'shippingmethods');
     }
 
     /**

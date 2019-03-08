@@ -20,6 +20,6 @@ class TaxClasses extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('MelonCart.Shop', 'meloncart', 'taxclasses');
+        BackendMenu::setContext('MelonCart.Shop', 'shop', 'taxclasses');
     }
 }

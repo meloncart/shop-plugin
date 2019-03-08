@@ -1,0 +1,25 @@
+# ===================================
+#  Condition Attribute Definitions
+# ===================================
+
+attributes:
+
+    price:
+        label: Price in the shopping cart
+        type: float
+
+    quantity:
+        label: Quantity in the shopping cart
+        type: integer
+
+    row_total:
+        label: Row total in the shopping cart
+        type: float
+
+    discount:
+        label: Total line item discount
+        type: float
+
+    bundle_item:
+        label: Product is a bundle item
+        type: boolean

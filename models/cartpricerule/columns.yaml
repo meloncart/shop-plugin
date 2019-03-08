@@ -1,0 +1,48 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    name:
+        label: Name
+
+    description:
+        label: Description
+
+    sort_order:
+        label: Sort Order
+
+    active:
+        label: Active
+
+    date_start:
+        label: From Date
+
+    date_end:
+        label: To Date
+
+    coupon:
+        type: relation
+        select: code
+
+    max_coupon_uses:
+        label: Max uses per coupon
+
+    max_customer_uses:
+        label: Max uses per customer
+
+    is_terminating:
+        label: Terminating Rule
+
+    rule_conditions_field:
+        label: Conditions
+
+    products_conditions_field:
+        label: Products Conditions
+
+    action_class_name:
+        label: Action
+
+    is_free_shipping:
+        label: Free shipping

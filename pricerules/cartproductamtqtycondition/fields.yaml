@@ -1,0 +1,21 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    parameter:
+        label: Parameter
+        type: dropdown
+        span: auto
+
+    operator:
+        label: Operator
+        type: dropdown
+        span: auto
+
+    value:
+        label: Value
+
+    condition_type:
+        label: Condition type
+        type: dropdown

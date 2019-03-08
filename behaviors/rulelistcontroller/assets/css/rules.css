@@ -1,0 +1,117 @@
+.rules-list-empty {
+  background: #eee;
+  color: #555;
+  text-align: center;
+  padding: 1em 0;
+}
+ul.rule-list {
+  margin-top: 10px;
+  width: 500px;
+}
+ul.rule-list li:hover div.drag-handle,
+ul.rule-list li.drag div.drag-handle {
+  display: block;
+}
+ul.rule-list li:first-child div.top-connector,
+ul.rule-list li.after-terminating div.top-connector {
+  display: none;
+}
+ul.rule-list li:last-child div.bottom-connector,
+ul.rule-list li.terminating div.bottom-connector {
+  display: none;
+}
+ul.rule-list .rule {
+  position: relative;
+  padding-right: 20px;
+}
+ul.rule-list .rule .rule_content_container {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px #dddddd;
+  background: #f3f3f3;
+}
+ul.rule-list .rule h4 {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 7px 6px 6px 20px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #333333;
+  background: #dcdcdc url(../images/compound_header_bg.gif) repeat-x left bottom;
+  border-bottom: 1px solid #999999;
+  position: relative;
+}
+ul.rule-list li.collapsed div.rule-description,
+ul.rule-list li.collapsed div.rule-info {
+  display: none;
+}
+ul.rule-list li.collapsed h4 {
+  border-bottom: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+ul.rule-list li.collapsed div.bottom-connector {
+  background: transparent url(../images/collapsed_rule_bottom_connector.png) no-repeat center top;
+}
+ul.rule-list li.inactive p,
+ul.rule-list li.inactive h4 a {
+  color: #999999;
+}
+ul.rule-list li.rule {
+  margin-bottom: 17px;
+}
+ul.rule-list li.rule div.bottom-connector {
+  background: transparent url(../images/rule_bottom_connector.png) no-repeat center top;
+  position: absolute;
+  height: 20px;
+  width: 480px;
+  bottom: -19px;
+}
+ul.rule-list li.rule div.top-connector {
+  background: transparent url(../images/rule_top_connector.png) no-repeat center top;
+  position: absolute;
+  height: 8px;
+  width: 480px;
+  top: -7px;
+}
+ul.rule-list li.drag {
+  background: none;
+}
+ul.rule-list li.drag .rule_content_container {
+  border-color: #529fd5 !important;
+  box-shadow: 0 0 4px #5a88d1;
+}
+ul.rule-list div.drag-handle {
+  background: transparent url(../images/drag_handle.png) no-repeat left top;
+  position: absolute;
+  width: 8px;
+  height: 15px;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  display: none;
+}
+ul.rule-list li:last-child {
+  margin-bottom: 0;
+}
+div.rule-description {
+  padding: 5px 10px 5px 10px;
+  background: #f3f3f3;
+  border-top: 1px solid #ffffff;
+}
+div.rule-description p {
+  padding-bottom: 0;
+  font-size: 11px;
+}
+div.rule-info {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  background: #e8e8e8;
+  border-top: 1px solid #c5c5c5;
+}
+div.rule-info p {
+  padding-bottom: 0;
+  font-size: 11px;
+  color: #666666;
+}

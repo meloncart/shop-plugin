@@ -20,6 +20,6 @@ class Orders extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('MelonCart.Shop', 'meloncart', 'orders');
+        BackendMenu::setContext('MelonCart.Shop', 'shop', 'orders');
     }
 }

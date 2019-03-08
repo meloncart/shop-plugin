@@ -21,7 +21,7 @@ class Categories extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('MelonCart.Shop', 'meloncart', 'categories');
+        BackendMenu::setContext('MelonCart.Shop', 'shop', 'categories');
     }
 
     /**
