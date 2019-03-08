@@ -8,7 +8,7 @@ class CreateTaxClassesTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_tax_classes', function($table)
+        Schema::create('mc_shop_tax_classes', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -24,7 +24,7 @@ class CreateTaxClassesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_tax_classes');
+        Schema::dropIfExists('mc_shop_tax_classes');
     }
 
 }

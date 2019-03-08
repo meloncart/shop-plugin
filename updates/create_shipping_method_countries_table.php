@@ -8,7 +8,7 @@ class CreateShippingMethodCountriesTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_shipping_method_countries', function($table)
+        Schema::create('mc_shop_shipping_method_countries', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('shipping_method_id')->default(0)->unsigned();
@@ -19,7 +19,7 @@ class CreateShippingMethodCountriesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_shipping_method_countries');
+        Schema::dropIfExists('mc_shop_shipping_method_countries');
     }
 
 }

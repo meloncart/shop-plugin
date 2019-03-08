@@ -8,7 +8,7 @@ class CreateProductPropertiesTable extends Migration
 {
     public function up()
     {
-        Schema::create('meloncart_shop_product_properties', function(Blueprint $table) {
+        Schema::create('mc_shop_product_properties', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateProductPropertiesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_product_properties');
+        Schema::dropIfExists('mc_shop_product_properties');
     }
 }

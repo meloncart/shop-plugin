@@ -15,7 +15,7 @@ class ProductOMRecord extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_om_records';
+    public $table = 'mc_shop_product_om_records';
 
     /**
      * @var array Guarded fields

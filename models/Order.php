@@ -12,7 +12,7 @@ class Order extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_orders';
+    public $table = 'mc_shop_orders';
 
     /**
      * @var array Guarded fields

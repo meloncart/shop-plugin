@@ -15,7 +15,7 @@ class OrderStatusTransition extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_order_status_transitions';
+    public $table = 'mc_shop_order_status_transitions';
 
     /**
      * @var array Guarded fields

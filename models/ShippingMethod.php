@@ -12,7 +12,7 @@ class ShippingMethod extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_shipping_methods';
+    public $table = 'mc_shop_shipping_methods';
 
     /**
      * @var array Guarded fields
@@ -33,7 +33,7 @@ class ShippingMethod extends Model
     public $hasMany = [];
     public $belongsTo = [];
     public $belongsToMany = [
-        'countries' => ['RainLab\Location\Models\Country', 'table' => 'meloncart_shop_shipping_method_countries', 'timestamps' => false]
+        'countries' => ['RainLab\Location\Models\Country', 'table' => 'mc_shop_shipping_method_countries', 'timestamps' => false]
     ];
     public $morphTo = [];
     public $morphOne = [];

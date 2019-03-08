@@ -17,7 +17,7 @@ class Category extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_categories';
+    public $table = 'mc_shop_categories';
 
     /**
      * @var array Guarded fields
@@ -36,7 +36,7 @@ class Category extends Model
     public $hasMany = [];
     public $belongsTo = [];
     public $belongsToMany = [
-        'products' => ['MelonCart\Shop\Models\Product', 'table' => 'meloncart_shop_products_categories', 'timestamps' => true],
+        'products' => ['MelonCart\Shop\Models\Product', 'table' => 'mc_shop_products_categories', 'timestamps' => true],
     ];
     public $morphTo = [];
     public $morphOne = [];

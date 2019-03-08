@@ -12,7 +12,7 @@ class ProductType extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_types';
+    public $table = 'mc_shop_product_types';
 
     /**
      * @var array Guarded fields

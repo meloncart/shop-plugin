@@ -14,7 +14,7 @@ class OrderStatus extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_order_statuses';
+    public $table = 'mc_shop_order_statuses';
 
     /**
      * @var array Guarded fields
@@ -35,7 +35,7 @@ class OrderStatus extends Model
     ];
     public $belongsTo = [];
     public $belongsToMany = [
-        //'transitions' => [self::class, 'table' => 'meloncart_shop_order_status_transitions', 'key' => 'from_status_id', 'otherKey' => 'to_status_id'],
+        //'transitions' => [self::class, 'table' => 'mc_shop_order_status_transitions', 'key' => 'from_status_id', 'otherKey' => 'to_status_id'],
     ];
     public $morphTo = [];
     public $morphOne = [];

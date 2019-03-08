@@ -12,7 +12,7 @@ class ProductExtra extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_extras';
+    public $table = 'mc_shop_product_extras';
 
     /**
      * Indicates if the model should be timestamped.

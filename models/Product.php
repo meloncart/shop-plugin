@@ -27,7 +27,7 @@ class Product extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_products';
+    public $table = 'mc_shop_products';
 
     /**
      * @var array Guarded fields
@@ -57,7 +57,7 @@ class Product extends Model
         //'baseOptions' => ['MelonCart\Shop\Models\ProductOMRecord', 'foreignKey' => 'default_om_id']
     ];
     public $belongsToMany = [
-        'categories' => ['MelonCart\Shop\Models\Category', 'table' => 'meloncart_shop_products_categories', 'timestamps' => true],
+        'categories' => ['MelonCart\Shop\Models\Category', 'table' => 'mc_shop_products_categories', 'timestamps' => true],
     ];
     public $morphTo = [];
     public $morphOne = [];
@@ -79,9 +79,9 @@ class Product extends Model
         'title'                 => 'required',
         'slug'                  => 'required',
         'description'           => 'required:update',
-        'manufacturer_id'       => 'required:update|exists:meloncart_shop_manufacturers,id',
-        'tax_class_id'          => 'required:update|exists:meloncart_shop_tax_classes,id',
-        'product_type_id'       => 'required:update|exists:meloncart_shop_product_types,id',
+        'manufacturer_id'       => 'required:update|exists:mc_shop_manufacturers,id',
+        'tax_class_id'          => 'required:update|exists:mc_shop_tax_classes,id',
+        'product_type_id'       => 'required:update|exists:mc_shop_product_types,id',
         'sale_price'            => 'required_if:is_on_sale,1|regex:/^-?\d+(\.\d\d)?\%?$/',
     ];
 

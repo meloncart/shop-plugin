@@ -15,7 +15,7 @@ class TaxClass extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_tax_classes';
+    public $table = 'mc_shop_tax_classes';
 
     /**
      * @var array Guarded fields

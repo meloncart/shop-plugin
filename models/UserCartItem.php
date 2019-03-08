@@ -10,7 +10,7 @@ class UserCartItem extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_user_cart_items';
+    public $table = 'mc_shop_user_cart_items';
 
     /**
      * @var array Guarded fields

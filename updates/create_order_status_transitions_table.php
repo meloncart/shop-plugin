@@ -8,7 +8,7 @@ class CreateOrderStatusTransitionsTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_order_status_transitions', function($table)
+        Schema::create('mc_shop_order_status_transitions', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -22,7 +22,7 @@ class CreateOrderStatusTransitionsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_order_status_transitions');
+        Schema::dropIfExists('mc_shop_order_status_transitions');
     }
 
 }

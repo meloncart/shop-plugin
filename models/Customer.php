@@ -14,7 +14,7 @@ class Customer extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_customers';
+    public $table = 'mc_shop_customers';
 
     /**
      * @var array Guarded fields
@@ -41,7 +41,7 @@ class Customer extends Model
         'shipping_state' => ['RainLab\Location\Models\State'],
     ];
     public $belongsToMany = [
-        'orders' => ['MelonCart\Shop\Models\Order', 'table' => 'meloncart_shop_products_orders', 'timestamps' => true],
+        'orders' => ['MelonCart\Shop\Models\Order', 'table' => 'mc_shop_products_orders', 'timestamps' => true],
     ];
     public $morphTo = [];
     public $morphOne = [];

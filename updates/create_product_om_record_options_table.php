@@ -8,7 +8,7 @@ class CreateProductOMRecordOptionsTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_product_om_record_options', function($table)
+        Schema::create('mc_shop_product_om_record_options', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('om_record_id')->unsigned();
@@ -20,7 +20,7 @@ class CreateProductOMRecordOptionsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_product_om_record_options');
+        Schema::dropIfExists('mc_shop_product_om_record_options');
     }
 
 }

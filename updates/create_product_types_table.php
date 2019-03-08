@@ -8,7 +8,7 @@ class CreateProductTypesTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_product_types', function($table)
+        Schema::create('mc_shop_product_types', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -20,7 +20,7 @@ class CreateProductTypesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_product_types');
+        Schema::dropIfExists('mc_shop_product_types');
     }
 
 }

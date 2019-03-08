@@ -8,7 +8,7 @@ class CreateShippingMethodsTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_shipping_methods', function($table)
+        Schema::create('mc_shop_shipping_methods', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -29,7 +29,7 @@ class CreateShippingMethodsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_shipping_methods');
+        Schema::dropIfExists('mc_shop_shipping_methods');
     }
 
 }

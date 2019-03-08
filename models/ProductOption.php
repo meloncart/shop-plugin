@@ -12,7 +12,7 @@ class ProductOption extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_options';
+    public $table = 'mc_shop_product_options';
 
     /**
      * Indicates if the model should be timestamped.

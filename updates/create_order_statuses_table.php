@@ -8,7 +8,7 @@ class CreateOrderStatusesTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_order_statuses', function($table)
+        Schema::create('mc_shop_order_statuses', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -25,7 +25,7 @@ class CreateOrderStatusesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_order_statuses');
+        Schema::dropIfExists('mc_shop_order_statuses');
     }
 
 }

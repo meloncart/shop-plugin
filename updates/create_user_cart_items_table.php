@@ -8,7 +8,7 @@ class CreateUserCartItemsTable extends Migration
 {
     public function up()
     {
-        Schema::create('meloncart_shop_user_cart_items', function(Blueprint $table) {
+        Schema::create('mc_shop_user_cart_items', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateUserCartItemsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_user_cart_items');
+        Schema::dropIfExists('mc_shop_user_cart_items');
     }
 }

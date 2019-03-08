@@ -9,7 +9,7 @@ class ShippingSettings extends Model
 	public $implement = ['System.Behaviors.SettingsModel'];
 
 	// A unique code
-	public $settingsCode = 'meloncart_shop_shippingsettings';
+	public $settingsCode = 'mc_shop_shippingsettings';
 
 	// Reference to field configuration
 	public $settingsFields = 'fields.yaml';

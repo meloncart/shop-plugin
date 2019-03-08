@@ -8,7 +8,7 @@ class CreateOrdersTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_orders', function($table)
+        Schema::create('mc_shop_orders', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -51,7 +51,7 @@ class CreateOrdersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_orders');
+        Schema::dropIfExists('mc_shop_orders');
     }
 
 }

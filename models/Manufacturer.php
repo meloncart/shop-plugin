@@ -18,7 +18,7 @@ class Manufacturer extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_manufacturers';
+    public $table = 'mc_shop_manufacturers';
 
     /**
      * @var array Guarded fields

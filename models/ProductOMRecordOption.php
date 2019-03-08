@@ -12,7 +12,7 @@ class ProductOMRecordOption extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_om_record_options';
+    public $table = 'mc_shop_product_om_record_options';
 
     /**
      * @var array Guarded fields

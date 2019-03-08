@@ -8,7 +8,7 @@ class CreateManufacturersTable extends Migration
 
     public function up()
     {
-        Schema::create('meloncart_shop_manufacturers', function($table)
+        Schema::create('mc_shop_manufacturers', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -31,7 +31,7 @@ class CreateManufacturersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('meloncart_shop_manufacturers');
+        Schema::dropIfExists('mc_shop_manufacturers');
     }
 
 }

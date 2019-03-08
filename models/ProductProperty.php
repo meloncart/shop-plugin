@@ -10,7 +10,7 @@ class ProductProperty extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'meloncart_shop_product_properties';
+    public $table = 'mc_shop_product_properties';
 
     /**
      * @var array Guarded fields
