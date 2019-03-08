@@ -3,5 +3,21 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+    color:
+        label:
+        type: colorpicker
+    title:
+        label: Title
+    notify_customer:
+        label: Notify Customer
+        type: switch
+    notify_recipients:
+        label: Notify Transition Recipients
+        type: switch
+    update_stock:
+        label: Update Stock
+        type: switch
+    customer_message_template:
+        label: Customer Message Template
+    system_message_template:
+        label: System Message Template

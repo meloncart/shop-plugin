@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+transitions:
+    label: Transition
+    list: ~/plugins/meloncart/shop/models/orderstatustransition/columns.yaml
+    form: ~/plugins/meloncart/shop/models/orderstatustransition/fields.yaml
+    emptyMessage: No transitions yet.
+    view:
+        showSorting: false
+        toolbarButtons: create|delete

@@ -3,6 +3,7 @@
     - create_categories_table.php
     - create_customers_table.php
     - create_manufacturers_table.php
+    - create_order_status_transitions_table.php
     - create_order_statuses_table.php
     - create_orders_table.php
     - create_product_types_table.php

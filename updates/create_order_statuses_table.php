@@ -12,11 +12,13 @@ class CreateOrderStatusesTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->boolean('is_enabled')->nullable()->default(false);
             $table->string('title')->default('');
             $table->string('color')->default('');
-            $table->string('api_code')->default('')->unique();
             $table->boolean('notify_customer')->default(0);
+            $table->string('customer_message_template')->nullable();
+            $table->boolean('notify_recipients')->default(0);
+            $table->boolean('update_stock')->default(0);
+            $table->string('system_message_template')->nullable();
             $table->timestamps();
         });
     }

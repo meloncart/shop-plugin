@@ -2,7 +2,41 @@
 #  Form Field Definitions
 # ===================================
 
-fields:
-    id:
-        label: ID
-        disabled: true
+tabs:
+    fields:
+        title:
+            label: Title
+            tab: Order Status
+        update_stock:
+            label: Update Stock
+            tab: Order Status
+            type: checkbox
+            comment: Update stock values when an order enters this status.
+        color:
+            label: Color
+            tab: Order Status
+            type: colorpicker
+        transitions:
+            type: MelonCart\Shop\FormWidgets\ListRelation
+            tab: Transitions
+            comment: A list of statuses an order of this status can be transferred to and the permissions required to be able to do so.
+        notify_customer:
+            label: Notify Customer
+            type: checkbox
+            tab: Notifications
+            comment: Notify customer when orders enter this status.
+        customer_message_template:
+            label: Customer Message Template
+            type: dropdown
+            tab: Notifications
+            comment: Email template used to notify the customer that the order has progressed to this status.
+        notify_recipients:
+            label: Notify Transition Recipients
+            type: checkbox
+            tab: Notifications
+            comment: Email template used to notify those in charge of processing orders that the order has progressed to this status.
+        system_message_template:
+            label: System Message Template
+            type: dropdown
+            tab: Notifications
+            comment: Email template used to notify the Transition Recipients that the order has progressed to this status.

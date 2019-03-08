@@ -5,6 +5,7 @@ use MelonCart\Shop\Models\Customer;
 use MelonCart\Shop\Models\ProductType;
 use MelonCart\Shop\Models\Manufacturer;
 use MelonCart\Shop\Models\OrderStatus;
+use MelonCart\Shop\Models\OrderStatusTransition;
 use MelonCart\Shop\Models\Category;
 use MelonCart\Shop\Models\TaxClass;
 use MelonCart\Shop\Models\Product;
@@ -86,28 +87,36 @@ class InitialSeed extends Seeder
 
 
         // Order Status'
-        OrderStatus::create([
-            'is_enabled' => true,
+        $order_new = OrderStatus::create([
             'title' => 'New',
             'color' => '#0099cc',
-            'api_code' => 'new',
-            'notify_customer' => false,
+            'notify_customer' => true,
+            'customer_message_template' => 'meloncart:order_thankyou',
+            'notify_recipients' => true,
+            'system_message_template' => 'meloncart:order_new_internal',
         ]);
 
-        OrderStatus::create([
-            'is_enabled' => true,
+        $order_paid = OrderStatus::create([
             'title' => 'Paid',
             'color' => '#9acd32',
-            'api_code' => 'paid',
             'notify_customer' => false,
+            'update_stock' => true,
+            'system_message_template' => 'shop:order_paid_internal',
         ]);
 
-        OrderStatus::create([
-            'is_enabled' => true,
+        $order_shipped = OrderStatus::create([
             'title' => 'Shipped',
             'color' => '#04d215',
-            'api_code' => 'shipped',
-            'notify_customer' => true,
+        ]);
+
+        OrderStatusTransition::create([
+            'from_status' => $order_new,
+            'to_status' => $order_paid,
+        ]);
+
+        OrderStatusTransition::create([
+            'from_status' => $order_paid,
+            'to_status' => $order_shipped,
         ]);
 
         for ( $i = 1; $i <= 30; $i++ )

@@ -1,0 +1,27 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order Routes
+
+# Model Form Field configuration
+form: $/meloncart/shop/models/orderstatus/fields.yaml
+
+# Model Class name
+modelClass: MelonCart\Shop\Models\OrderStatus
+
+# Default redirect location
+defaultRedirect: meloncart/shop/orderstatuses
+
+# Create page
+create:
+    title: Create Status
+    redirect: meloncart/shop/orderstatuses/update/:id
+    redirectClose: meloncart/shop/orderstatuses
+
+# Update page
+update:
+    title: Edit Status
+    redirect: meloncart/shop/orderstatuses
+    redirectClose: meloncart/shop/orderstatuses

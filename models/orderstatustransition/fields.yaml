@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    to_status_id:
+        label: Destination Status
+        type: dropdown
+        comment: Please select status an orders of this status can transfer to.
+    role_id:
+        label: Role
+        type: dropdown
+        comment: Please select a role required for administrators to be able to transfer orders of this status to the one selected above.

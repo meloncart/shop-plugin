@@ -1,5 +1,6 @@
 <?php namespace MelonCart\Shop\Models;
 
+use Illuminate\Support\Arr;
 use Model;
 
 /**
@@ -29,9 +30,13 @@ class OrderStatus extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [];
+    public $hasMany = [
+        'transitions' => ['MelonCart\Shop\Models\OrderStatusTransition', 'key' => 'from_status_id'],
+    ];
     public $belongsTo = [];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        //'transitions' => [self::class, 'table' => 'meloncart_shop_order_status_transitions', 'key' => 'from_status_id', 'otherKey' => 'to_status_id'],
+    ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
@@ -43,4 +48,25 @@ class OrderStatus extends Model
      */
     public $rules = [];
 
+    public function beforeDelete()
+    {
+        $this->transitions()->delete();
+    }
+
+    public function getAvailableMessageTemplates()
+    {
+        $templates = \System\Models\MailTemplate::allTemplates();
+
+        return Arr::pluck($templates, 'code', 'id');
+    }
+
+    public function getCustomerMessageTemplateOptions($value, OrderStatus $record)
+    {
+        return $this->getAvailableMessageTemplates();
+    }
+
+    public function getSystemMessageTemplateOptions($value, OrderStatus $record)
+    {
+        return $this->getAvailableMessageTemplates();
+    }
 }

@@ -1,0 +1,15 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    to_status:
+        label: To Status
+        type: partial
+        path: $/meloncart/shop/models/orderstatustransition/_to_status_column.htm
+        sortable: false
+    role:
+        label: Role
+        type: partial
+        path: $/meloncart/shop/models/orderstatustransition/_role_column.htm
+        sortable: false
