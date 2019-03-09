@@ -12,8 +12,8 @@ class CreateShippingMethodsTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->boolean('enabled_on_frontend')->nullable()->default(1)->index('enabled_on_frontend_idx');
-            $table->boolean('enabled_on_backend')->nullable()->default(1)->index('enabled_on_backend_idx');
+            $table->boolean('enabled_on_frontend')->nullable()->default(1)->index(); // enabled_on_frontend_idx
+            $table->boolean('enabled_on_backend')->nullable()->default(1)->index(); // enabled_on_backend_idx
             $table->string('type')->default('');
             $table->string('title')->default('');
             $table->text('description')->nullable()->default('');

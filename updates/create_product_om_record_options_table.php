@@ -12,7 +12,7 @@ class CreateProductOMRecordOptionsTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->integer('om_record_id')->unsigned();
-            $table->integer('om_option_id')->unsigned()->index('omrecordoptions_om_option_id');
+            $table->integer('om_option_id')->unsigned()->index(); // omrecordoptions_om_option_id
             $table->string('value');
             $table->primary(['om_record_id', 'value'], 'omrecordoptions_record_id_value');
         });
