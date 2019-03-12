@@ -73,7 +73,7 @@ class Orders extends Controller
             is_array($checkedIds) &&
             count($checkedIds)
         ) {
-            if ( in_array($bulkAction, ['onLoadStatusSelection', 'updateStatus']) )
+            if ( in_array($bulkAction, ['onLoadStatusSelection']) )
             {
                 $status_ids = Order::select('status_id')
                     ->whereIn('id', $checkedIds)
@@ -109,10 +109,6 @@ class Orders extends Controller
                 switch ($bulkAction) {
                     case 'delete':
                         $order->forceDelete();
-                        break;
-
-                    case 'updateStatus':
-                        $order->changeStatus($user->activation_code);
                         break;
                 }
             }
