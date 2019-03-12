@@ -5,16 +5,19 @@
 columns:
     color:
         label: -
-        relation: status
-        select: "@color"
+        type: partial
+        path: ~/plugins/meloncart/shop/models/order/_status_column.htm
+#        relation: status
+#        select: "@color"
+        sortable: false
 
     id:
-        label: ID
+        label: "#"
 
     created_at:
         label: Date and Time
 
-    status:
+    status_title:
         label: Status
         relation: status
         select: "@title"

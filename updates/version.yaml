@@ -6,6 +6,8 @@
     - create_order_status_transitions_table.php
     - create_order_statuses_table.php
     - create_orders_table.php
+    - create_order_items_table.php
+    - create_order_item_taxes_table.php
     - create_product_types_table.php
     - create_product_options_table.php
     - create_product_extras_table.php

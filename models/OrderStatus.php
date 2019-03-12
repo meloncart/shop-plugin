@@ -55,9 +55,7 @@ class OrderStatus extends Model
 
     public function getAvailableMessageTemplates()
     {
-        $templates = \System\Models\MailTemplate::allTemplates();
-
-        return Arr::pluck($templates, 'code', 'id');
+        return \System\Models\MailTemplate::listAllTemplates();
     }
 
     public function getCustomerMessageTemplateOptions($value, OrderStatus $record)

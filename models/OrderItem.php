@@ -5,14 +5,14 @@ use Model;
 /**
  * Order Model
  */
-class Order extends Model
+class OrderItem extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'mc_shop_orders';
+    public $table = 'mc_shop_order_items';
 
     /**
      * @var array Guarded fields
@@ -25,16 +25,22 @@ class Order extends Model
     protected $fillable = [];
 
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @var array Relations
      */
     public $hasOne = [];
     public $hasMany = [
-        'items' => ['MelonCart\Shop\Models\OrderItem'],
+        'taxes' => ['MelonCart\Shop\Models\OrderItemTax'],
     ];
     public $belongsTo = [
-        'customer' => ['RainLab\User\Models\User'],
-        'shipping_method' => ['MelonCart\Shop\Models\ShippingMethod'],
-        'status' => ['MelonCart\Shop\Models\OrderStatus'],
+        'order' => ['MelonCart\Shop\Models\Order'],
+        'product' => ['MelonCart\Shop\Models\Product'],
     ];
     public $belongsToMany = [];
     public $morphTo = [];
@@ -48,13 +54,4 @@ class Order extends Model
      */
     public $rules = [];
 
-    /**
-     * @param int $new_status
-     * @return mixed
-     */
-    public function updateStatus($new_status)
-    {
-        $this->status_id = $new_status;
-        return $this->save();
-    }
 }

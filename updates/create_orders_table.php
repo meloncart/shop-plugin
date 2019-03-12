@@ -14,6 +14,8 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('customer_id')->nullable()->default(0)->unsigned()->index();
             $table->integer('payment_method_id')->nullable()->default(0)->unsigned()->index();
+            $table->integer('status_id')->default(0)->unsigned()->index();
+            $table->datetime('status_updated_at')->nullable();
             $table->string('customer_ip')->nullable()->default('');
             $table->string('billing_first_name')->nullable()->default('');
             $table->string('billing_last_name')->nullable()->default('');
@@ -42,8 +44,6 @@ class CreateOrdersTable extends Migration
             $table->decimal('shipping_tax', 15, 2)->default(0)->unsigned();
             $table->integer('shipping_method_id')->default(0)->unsigned()->index();
             $table->decimal('total', 15, 2)->default(0)->unsigned();
-            $table->integer('status_id')->default(0)->unsigned()->index();
-            $table->datetime('status_updated_at')->nullable();
             $table->datetime('payment_processed_at')->nullable();
             $table->timestamps();
         });

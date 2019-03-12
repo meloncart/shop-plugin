@@ -1,5 +1,11 @@
 <?php namespace MelonCart\Shop\Updates;
 
+use Faker\Factory;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
+use MelonCart\Shop\Models\Order;
+use MelonCart\Shop\Models\OrderItem;
+use MelonCart\Shop\Models\ShippingMethod;
 use RainLab\User\Models\User;
 use MelonCart\Shop\Models\Customer;
 use MelonCart\Shop\Models\ProductType;
@@ -23,25 +29,27 @@ class InitialSeed extends Seeder
 
     public function run()
     {
+        $faker = Factory::create();
+
         // Customer
         $user = User::first();
         $australia = Country::where('name', '=', 'Australia')->first();
         $queensland = State::where('name', '=', 'Queensland')->first();
         $customer = Customer::create([
             'user_id' => $user ? $user->id : 0,
-            'shipping_name' => 'First',
-            'shipping_surname' => 'Last',
-            'shipping_company' => 'company',
-            'shipping_phone' => '12345678',
+            'shipping_name' => $user ? $user->name : $faker->firstName,
+            'shipping_surname' => $user ? $user->surname : $faker->lastName,
+            'shipping_company' => $faker->company,
+            'shipping_phone' => $faker->phoneNumber,
             'shipping_country_id' => $australia->id,
             'shipping_state_id' => $queensland->id,
-            'shipping_street_addr' => '123 fake street',
-            'shipping_city' => 'city',
-            'shipping_zip' => '1234',
+            'shipping_street_addr' => $faker->streetAddress,
+            'shipping_city' => $faker->city,
+            'shipping_zip' => $faker->postcode,
         ]);
 
         // Product types
-        ProductType::create([
+        $productTypeGoods = ProductType::create([
             'title' => 'Goods',
             'api_code' => 'goods',
         ]);
@@ -58,7 +66,7 @@ class InitialSeed extends Seeder
 
 
         // Manufacturer
-        Manufacturer::create([
+        $manufacturer = Manufacturer::create([
             'is_enabled' => true,
             'title' => 'Example Manufacturer',
             'slug' => 'example-manufacturer',
@@ -78,11 +86,24 @@ class InitialSeed extends Seeder
         ]);
 
         // Tax Classes
-        TaxClass::create([
+        $taxClass = TaxClass::create([
             'title' => 'Default',
             'api_code' => 'default',
             // 'rates' => '[{"countryCode":"3","stateCode":"*","rate":"10%","title":"GST"}]',
             'is_default' => true,
+        ]);
+
+        // Shipping Methods
+        $shippingMethod = ShippingMethod::create([
+            'enabled_on_frontend' => false,
+            'enabled_on_backend' => true,
+            'type' => 'MelonCart\Shop\ShippingTypes\TableRate',
+            'title' => 'Default',
+            'config_data' => [
+                'rates' => [],
+            ],
+            'is_taxable' => true,
+            'handling_fee' => 6.5
         ]);
 
 
@@ -119,28 +140,30 @@ class InitialSeed extends Seeder
             'to_status' => $order_shipped,
         ]);
 
+        $products = [];
         for ( $i = 1; $i <= 30; $i++ )
         {
-            $product = Product::create([
+            $product = $products[] = Product::create([
                 'is_enabled' => true,
                 'slug' => 'my-product-'.$i,
                 'title' => 'My Product ' . $i,
-                'short_desc' => "Short description goes here.\n\n And some more here.",
-                'description' => "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper a nisi sed ultrices. Sed et ultrices mauris. Suspendisse quis viverra quam, a elementum augue. Ut neque diam, interdum eget sollicitudin id, pharetra eu justo. Vivamus eros justo, congue eget lacus eget, ullamcorper eleifend metus. Praesent maximus, nibh id tincidunt tincidunt, mauris nisi ultricies ipsum, scelerisque mollis urna arcu sed eros. Ut tincidunt justo a pharetra ultricies. Morbi convallis lorem sit amet lectus molestie, vel consequat diam bibendum. Sed lacinia nisi ac sem laoreet, sit amet scelerisque sapien accumsan. Donec in velit neque. Pellentesque condimentum tellus non felis pretium, sit amet vulputate leo semper. Praesent odio ex, aliquam ac tincidunt eu, pharetra vel tellus. Nulla ac sem vitae augue tempor sollicitudin non sit amet diam. Quisque sed sapien vel purus venenatis porta vel eu massa. Integer malesuada ultrices neque quis vestibulum. Cras pretium, mi vel pretium condimentum, ante tellus vehicula turpis, ut dictum eros nunc ut urna.</p><p>Integer non libero ut lectus accumsan lobortis non a dolor. Suspendisse potenti. Sed et nisl nisl. Nam consequat lacinia ex, sit amet aliquam ex facilisis vel. In hac habitasse platea dictumst. Mauris commodo hendrerit interdum. Suspendisse tincidunt sodales justo vel cursus. Curabitur a sollicitudin mi.</p><p>Mauris fringilla tortor libero, nec venenatis ligula egestas a. Etiam lobortis, ante quis hendrerit pellentesque, enim quam dictum nulla, faucibus sollicitudin tellus lectus quis lectus. Maecenas quis magna non eros aliquam laoreet a quis dui. Curabitur venenatis cursus imperdiet. Nulla et venenatis metus. Nunc congue, diam eget rutrum congue, lectus nibh mattis mauris, sed eleifend augue ipsum id risus. Integer dapibus aliquet lorem in dictum. Integer at diam non odio rhoncus elementum vel nec ante.</p><p>Sed dignissim, ante et ultrices tincidunt, nisi arcu rutrum urna, non elementum turpis turpis et nibh. In malesuada ante in mattis vulputate. Pellentesque at neque sit amet felis aliquam posuere dapibus id lacus. Integer tristique turpis nunc, vel dictum tellus imperdiet non. In vulputate elit mattis faucibus rutrum. Nulla ut ultricies turpis, ac sodales velit. Nullam in odio at erat blandit suscipit eget vitae orci. Nulla tincidunt, felis sit amet eleifend elementum, justo lectus venenatis massa, et iaculis dui mauris at diam. Aenean feugiat mollis nulla, et aliquam lectus cursus sed. Donec vestibulum purus posuere, condimentum ante vitae, gravida orci.</p>",
-                'manufacturer_id' => 1,
-                'tax_class_id' => 1,
-                'product_type_id' => 1, // Goods
+                'short_desc' => $faker->text(50),
+                'description' => "<p>".$faker->text(200)."</p>",
+                'manufacturer' => $manufacturer,
+                'tax_class' => $taxClass,
+                'product_type' => $productTypeGoods, // Goods
                 //'default_om_id' => 1,
-                'cost' => 5.39,
-                'base_price' => 5.80,
+                'cost' => $faker->numberBetween(5000, 10000) / 100,
+                'base_price' => $faker->numberBetween(2000, 4999) / 100,
                 'sku' => 'my-sku',
-                'hide_if_out_of_stock' => 1,
+                'units_in_stock' => $faker->numberBetween(0, 15),
+                'hide_if_out_of_stock' => $faker->numberBetween(0, 1),
             ]);
 
 
             $product->product_options()->save(new ProductOption([
                 'title' => "Colour",
-                "values" => "Red\nGreen\nBlue",
+                "values" => $faker->colorName . "\n" . $faker->colorName . "\n" . $faker->colorName,
             ]));
 
             $product->product_extras()->save(new ProductExtra([
@@ -150,6 +173,61 @@ class InitialSeed extends Seeder
 
             $product->categories()->attach($category);
             $product->save();
+        }
+
+        for ( $i = 0; $i < 5; $i++ )
+        {
+            $order_products = Arr::random($products, $faker->numberBetween(1, 4));
+            $subtotal = array_reduce($order_products, function($carry, $product) {
+                return $carry + $product->cost;
+            });
+            $shipping = 6.5;
+            $total = $subtotal + $shipping;
+
+            // @TODO Add payment and shipping methods
+            $order = Order::create([
+                'status' => $order_paid,
+                'status_updated_at' => Carbon::now(),
+                'customer' => $customer,
+                'payment_method_id' => null,
+                'shipping_method' => $shippingMethod,
+                'customer_ip' => $faker->ipv4,
+                'shipping_first_name' => $customer->shipping_name,
+                'shipping_last_name' => $customer->shipping_surname,
+                'shipping_company' => $customer->shipping_company,
+                'shipping_phone' => $customer->shipping_phone,
+                'shipping_country_id' => $customer->shipping_country_id,
+                'shipping_state_id' => $customer->shipping_state_id,
+                'shipping_street_addr' => $customer->shipping_street_addr,
+                'shipping_city' => $customer->shipping_city,
+                'shipping_zip' => $customer->shipping_zip,
+                'billing_email' => $customer->user ? $customer->user->email : $faker->email,
+                'billing_first_name' => $customer->shipping_name,
+                'billing_last_name' => $customer->shipping_surname,
+                'billing_company' => $customer->shipping_company,
+                'billing_phone' => $customer->shipping_phone,
+                'billing_country_id' => $customer->shipping_country_id,
+                'billing_state_id' => $customer->shipping_state_id,
+                'billing_street_addr' => $customer->shipping_street_addr,
+                'billing_city' => $customer->shipping_city,
+                'billing_zip' => $customer->shipping_zip,
+                'subtotal' => $subtotal,
+                'discount' => 0,
+                'tax' => 0,
+                'shipping' => $shipping,
+                'shipping_tax' => 0,
+                'total' => $total,
+                'payment_processed_at' => Carbon::now(),
+            ]);
+
+            foreach ( $order_products as $product )
+            {
+                $order->items()->save(new OrderItem([
+                    'product' => $product,
+                    'price' => $product->cost,
+                    'quantity' => 1,
+                ]));
+            }
         }
 
         // Default OM Record

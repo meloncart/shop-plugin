@@ -1,0 +1,30 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h4 class="modal-title" id="chooseTypeLabel">Transition Orders to Status</h4>
+</div>
+<div class="modal-body">
+
+	<div class='list-preview'>
+		<div class="control-simplelist is-selectable is-scrollable" data-control="simplelist">
+			<ul>
+				<?php foreach ( $statuses as $status ): ?>
+					<li>
+						<a
+							data-dismiss="modal"
+							data-request="onUpdateStatus"
+							data-request-data="status:<?= $status->id ?>, checked:[<?= implode(',', $checked) ?>]"
+							data-stripe-load-indicator
+						>
+							<span style="width:30px; height:30px; display:inline-block; background:<?= $status->color ?>; padding:10px; float:left"><span></span></span>
+							<h5 class='heading' style="display:inline-block; margin:0 0 0 10px; line-height:30px"><?= $status->title ?></h5>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+</div>

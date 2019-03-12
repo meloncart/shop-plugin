@@ -5,7 +5,7 @@ use Model;
 /**
  * Order Model
  */
-class Order extends Model
+class OrderItemTax extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
@@ -25,16 +25,19 @@ class Order extends Model
     protected $fillable = [];
 
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [
-        'items' => ['MelonCart\Shop\Models\OrderItem'],
-    ];
+    public $hasMany = [];
     public $belongsTo = [
-        'customer' => ['RainLab\User\Models\User'],
-        'shipping_method' => ['MelonCart\Shop\Models\ShippingMethod'],
-        'status' => ['MelonCart\Shop\Models\OrderStatus'],
+        'orderItem' => ['MelonCart\Shop\Models\OrderItem', 'key' => 'order_item_id'],
     ];
     public $belongsToMany = [];
     public $morphTo = [];
@@ -48,13 +51,4 @@ class Order extends Model
      */
     public $rules = [];
 
-    /**
-     * @param int $new_status
-     * @return mixed
-     */
-    public function updateStatus($new_status)
-    {
-        $this->status_id = $new_status;
-        return $this->save();
-    }
 }

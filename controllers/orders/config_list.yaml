@@ -12,7 +12,7 @@ modelClass: MelonCart\Shop\Models\Order
 title: Manage Orders
 
 # Link URL for each record
-recordUrl: meloncart/shop/orders/update/:id
+recordUrl: meloncart/shop/orders/preview/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -32,7 +32,7 @@ showSorting: true
 #     direction: desc
 
 # Display checkboxes next to each record
-# showCheckboxes: true
+showCheckboxes: true
 
 # Toolbar widget configuration
 toolbar:
